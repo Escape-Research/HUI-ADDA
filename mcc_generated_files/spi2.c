@@ -66,8 +66,8 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 
 void SPI2_Initialize (void)
 {
-    // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 disabled; SMP Middle; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
-    SPI2CON1 = 0x20;
+    // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
+    SPI2CON1 = 0x420;
     // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN disabled; 
     SPI2CON2 = 0x1;
     // SISEL SPI_INT_SPIRBF; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
@@ -193,20 +193,20 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 }
 
 
-
-uint8_t SPI2_Exchange8bit( uint8_t data )
+uint16_t SPI2_Exchange16bit( uint16_t data )
 {
-    uint8_t receiveData;
+    uint16_t receiveData;
     
-    SPI2_Exchange(&data, &receiveData);
+    SPI2_Exchange((uint8_t*)&data, (uint8_t*)&receiveData);
 
     return (receiveData);
 }
 
-uint16_t SPI2_Exchange8bitBuffer(uint8_t *dataTransmitted, uint16_t byteCount, uint8_t *dataReceived)
+uint16_t SPI2_Exchange16bitBuffer(uint16_t *dataTransmitted, uint16_t byteCount, uint16_t *dataReceived)
 {
-    return (SPI2_ExchangeBuffer(dataTransmitted, byteCount, dataReceived));
+    return (SPI2_ExchangeBuffer((uint8_t*)dataTransmitted, byteCount, (uint8_t*)dataReceived));
 }
+
 
 /**
 
