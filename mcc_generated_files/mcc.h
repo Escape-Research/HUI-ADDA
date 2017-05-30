@@ -48,11 +48,11 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "interrupt_manager.h"
-#include "traps.h"
+#include "dma.h"
 #include "spi2.h"
 #include "spi1.h"
-#include "dma.h"
+#include "interrupt_manager.h"
+#include "traps.h"
 
 #define _XTAL_FREQ  60802500UL
 
