@@ -47,48 +47,7 @@ MPLAB             :  MPLAB X 3.45
 void DMA_Initialize(void) 
 { 
     // Initialize channels which are enabled 
-    // AMODE Register Indirect with Post-Increment mode; CHEN enabled; DIR Reads from peripheral address, writes to RAM address; HALF Initiates interrupt when all of the data has been moved; SIZE 16 bit; NULLW disabled; MODE Continuous, Ping-Pong modes are disabled; 
-    DMA0CON= 0x8000 & 0xFFFE; //Enable DMA Channel later;
-    // FORCE disabled; IRQSEL SPI1; 
-    DMA0REQ= 0xA;
-    // CNT 0; 
-    DMA0CNT= 0x0;
-    // STA 4096; 
-    DMA0STAL= 0x1000;
-    // STA 0; 
-    DMA0STAH= 0x0;
-    // Clearing Channel 0 Interrupt Flag;
-    IFS0bits.DMA0IF = false;
-    // Enabling Channel 0 Interrupt
-    IEC0bits.DMA0IE = 1;
-    // AMODE Register Indirect with Post-Increment mode; CHEN enabled; SIZE 16 bit; DIR Reads from RAM address, writes to peripheral address; NULLW disabled; HALF Initiates interrupt when all of the data has been moved; MODE Continuous, Ping-Pong modes are disabled; 
-    DMA1CON= 0xA000 & 0xFFFE; //Enable DMA Channel later;
-    // FORCE disabled; IRQSEL SPI2; 
-    DMA1REQ= 0x21;
-    // CNT 0; 
-    DMA1CNT= 0x0;
-    // STA 4096; 
-    DMA1STAL= 0x1000;
-    // STA 0; 
-    DMA1STAH= 0x0;
-    // Clearing Channel 1 Interrupt Flag;
-    IFS0bits.DMA1IF = false;
-    // Enabling Channel 1 Interrupt
 
-    //Enable DMA Channel 0
-    
-    DMA0CONbits.CHEN = 1;
-    //Enable DMA Channel 1
-    
-    DMA1CONbits.CHEN = 1;
-}
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _DMA0Interrupt( void )
-{
-    IFS0bits.DMA0IF = 0;
-}
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _DMA1Interrupt( void )
-{
-    IFS0bits.DMA1IF = 0;
 }
 
 /**

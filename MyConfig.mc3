@@ -1,12 +1,12 @@
 <config configVersion="1.1" device="dsPIC33EV256GM102">
    <usedClasses class="java.util.HashMap">
       <entry>
-         <string>System Module</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.DefaultSystemManagerMcu16</string>
-      </entry>
-      <entry>
          <string>SPI2</string>
          <string>class com.microchip.mcc.mcu16.modules.spi.SPI</string>
+      </entry>
+      <entry>
+         <string>System Module</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.DefaultSystemManagerMcu16</string>
       </entry>
       <entry>
          <string>SPI1</string>
@@ -17,16 +17,16 @@
          <string>class com.microchip.mcc.mcu16.systemManager.clk.Clock</string>
       </entry>
       <entry>
-         <string>Pin Module</string>
-         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
+         <string>WATCHDOG</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.wdt.Wdt</string>
       </entry>
       <entry>
          <string>DMA</string>
          <string>class com.microchip.mcc.mcu16.modules.dma_dspic.DMA</string>
       </entry>
       <entry>
-         <string>WATCHDOG</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.wdt.Wdt</string>
+         <string>Pin Module</string>
+         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
       </entry>
       <entry>
          <string>DMT</string>
@@ -2111,7 +2111,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA0I" settingAlias="enable"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="FRMEN" alias="enabled"/>
@@ -3943,7 +3943,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="CHEN1"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="FORCE" alias="disabled"/>
@@ -4911,7 +4911,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="CHEN0"/>
-         <value>enabled</value>
+         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SRXMPT" alias="enabled"/>
@@ -5947,7 +5947,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH0"/>
-         <value>32768</value>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="CKP" alias="Idle:Low, Active:High"/>
@@ -6255,7 +6255,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH1"/>
-         <value>40960</value>
+         <value>8192</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNI" settingAlias="priority"/>
@@ -6365,7 +6365,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/dma.c</file>
-         <hash>900474600bc50ec12fc737a66e05a39e9c3c9026b33f47832a7ee15b9828ede9</hash>
+         <hash>18d9d41a39a5d05d3388fdf0a5ed691933ddf41df6bc1dce1d90b165e1d7db41</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/spi1.h</file>
@@ -6373,11 +6373,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.h</file>
-         <hash>a9cf5c61876e217e97d7609cd60bd12c4596aac9294e7eda11c2980a66c2f522</hash>
+         <hash>5ecc4ae59210f0bbeb4c061643fd636c45544a00b7b2c7df02f0f14dcfb242e7</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
-         <hash>c33ea9dddad786303c0f6417bbf25fafdd5efea610d0cd15d4c9fd0f6be989a4</hash>
+         <hash>43fb5a1a50ddaf1eb64d851842ad4d5eb5fea336d1311322ff4b4eb670dc5990</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
