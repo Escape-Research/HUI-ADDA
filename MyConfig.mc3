@@ -9,24 +9,24 @@
          <string>class com.microchip.mcc.mcu16.systemManager.clk.Clock</string>
       </entry>
       <entry>
-         <string>Pin Module</string>
-         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
-      </entry>
-      <entry>
          <string>WATCHDOG</string>
          <string>class com.microchip.mcc.mcu16.systemManager.wdt.Wdt</string>
+      </entry>
+      <entry>
+         <string>Pin Module</string>
+         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
       </entry>
       <entry>
          <string>DMT</string>
          <string>class com.microchip.mcc.mcu16.systemManager.dmt.DMT</string>
       </entry>
       <entry>
-         <string>RESET</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
-      </entry>
-      <entry>
          <string>ICD</string>
          <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
+      </entry>
+      <entry>
+         <string>RESET</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
       </entry>
       <entry>
          <string>Interrupt Module</string>
@@ -4236,32 +4236,32 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>8d8e76fad25d9cd85323477e1dac0a07896485b536c75d3cc13aab34423e35e6</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\interrupt_manager.h</file>
          <hash>4303046c289a04e6887672f54b8c966e160927630da5a7b7c74d235536b6ef80</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>8d8e76fad25d9cd85323477e1dac0a07896485b536c75d3cc13aab34423e35e6</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\traps.c</file>
          <hash>a3c04f10c6eb52fd296346ff59667188b20c2409d7df47e3a92396357ce95a8b</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\pin_manager.h</file>
-         <hash>99722bd4df694154f580193486c9c0e1903567ca3f26c1afaf3468260c3e97a2</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\traps.h</file>
          <hash>d325bcd35889aee7e4eb6eca2ba89cd5ddffd84da2adb7452003193caec423d7</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>9dac370af7aa412173b306c64a08acc982faad201a8297b7cd0c754628679f27</hash>
+         <file>mcc_generated_files\pin_manager.h</file>
+         <hash>99722bd4df694154f580193486c9c0e1903567ca3f26c1afaf3468260c3e97a2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\interrupt_manager.c</file>
          <hash>43fb5a1a50ddaf1eb64d851842ad4d5eb5fea336d1311322ff4b4eb670dc5990</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>530bef4eda21671ecf07979adea8988227188926f14728c3bf445377c55eb9fc</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>

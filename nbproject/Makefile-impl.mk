@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=hui-adda.X
+PROJECTNAME=hui-adda
 
 # Active Configuration
 DEFAULTCONF=default
