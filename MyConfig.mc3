@@ -17,6 +17,10 @@
          <string>class com.microchip.mcc.mcu16.systemManager.clk.Clock</string>
       </entry>
       <entry>
+         <string>Pin Module</string>
+         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
+      </entry>
+      <entry>
          <string>WATCHDOG</string>
          <string>class com.microchip.mcc.mcu16.systemManager.wdt.Wdt</string>
       </entry>
@@ -25,20 +29,16 @@
          <string>class com.microchip.mcc.mcu16.modules.dma_dspic.DMA</string>
       </entry>
       <entry>
-         <string>Pin Module</string>
-         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
-      </entry>
-      <entry>
          <string>DMT</string>
          <string>class com.microchip.mcc.mcu16.systemManager.dmt.DMT</string>
       </entry>
       <entry>
-         <string>ICD</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
-      </entry>
-      <entry>
          <string>RESET</string>
          <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
+      </entry>
+      <entry>
+         <string>ICD</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
       </entry>
       <entry>
          <string>Interrupt Module</string>
@@ -6336,12 +6336,12 @@
          <hash>4303046c289a04e6887672f54b8c966e160927630da5a7b7c74d235536b6ef80</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/pin_manager.h</file>
-         <hash>99722bd4df694154f580193486c9c0e1903567ca3f26c1afaf3468260c3e97a2</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/spi1.c</file>
          <hash>68231cb21407f2300e1e479a9b6966ee334b3a3f5c4603608e4ea7bfa81b7b29</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>99722bd4df694154f580193486c9c0e1903567ca3f26c1afaf3468260c3e97a2</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/spi2.c</file>
@@ -6364,16 +6364,16 @@
          <hash>a3c04f10c6eb52fd296346ff59667188b20c2409d7df47e3a92396357ce95a8b</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/dma.c</file>
-         <hash>18d9d41a39a5d05d3388fdf0a5ed691933ddf41df6bc1dce1d90b165e1d7db41</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/spi1.h</file>
          <hash>63e4957a0c4bd8df5263076c93d7f20e05ce222a4a22ade5f0a98e192096540d</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files/dma.c</file>
+         <hash>18d9d41a39a5d05d3388fdf0a5ed691933ddf41df6bc1dce1d90b165e1d7db41</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files/mcc.h</file>
-         <hash>5ecc4ae59210f0bbeb4c061643fd636c45544a00b7b2c7df02f0f14dcfb242e7</hash>
+         <hash>448cd4086ab01e1e92c41d6d5537c5bfb54b829292861ab6155760b1483921d4</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
