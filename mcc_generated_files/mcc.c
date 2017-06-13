@@ -60,7 +60,7 @@
 
 // FOSC
 #pragma config POSCMD = NONE    // Primary Oscillator Mode Select Bits->Primary Oscillator disabled
-#pragma config OSCIOFNC = OFF    // OSC2 Pin I/O Function Enable Bit->OSC2 is clock output
+#pragma config OSCIOFNC = ON    // OSC2 Pin I/O Function Enable Bit->OSC2 is general purpose digital I/O pin
 #pragma config IOL1WAY = ON    // Peripheral Pin Select Configuration Bit->Allow Only One reconfiguration
 #pragma config FCKSM = CSDCMD    // Clock Switching Mode Bits->Both Clock Switching and Fail-safe Clock Monitor are disabled
 #pragma config PLLKEN = ON    // PLL Lock Enable Bit->Clock switch to PLL source will wait until the PLL lock signal is valid
@@ -125,8 +125,8 @@ void SYSTEM_ResetCauseClear(RESET_MASKS resetFlagMask);
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
     INTERRUPT_Initialize();
+    OSCILLATOR_Initialize();
     SPI1_Initialize();
     SPI2_Initialize();
     DMA_Initialize();

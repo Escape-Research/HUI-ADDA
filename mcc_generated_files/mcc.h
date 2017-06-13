@@ -48,9 +48,9 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "dma.h"
 #include "interrupt_manager.h"
 #include "traps.h"
+#include "dma.h"
 #include "spi2.h"
 #include "spi1.h"
 
