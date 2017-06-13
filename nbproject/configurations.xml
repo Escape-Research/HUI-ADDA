@@ -7,13 +7,13 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>MCC_generated_files/dma.h</itemPath>
-        <itemPath>MCC_generated_files/interrupt_manager.h</itemPath>
-        <itemPath>MCC_generated_files/mcc.h</itemPath>
-        <itemPath>MCC_generated_files/pin_manager.h</itemPath>
-        <itemPath>MCC_generated_files/spi1.h</itemPath>
-        <itemPath>MCC_generated_files/spi2.h</itemPath>
-        <itemPath>MCC_generated_files/traps.h</itemPath>
+        <itemPath>mcc_generated_files/dma.h</itemPath>
+        <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
+        <itemPath>mcc_generated_files/mcc.h</itemPath>
+        <itemPath>mcc_generated_files/pin_manager.h</itemPath>
+        <itemPath>mcc_generated_files/spi1.h</itemPath>
+        <itemPath>mcc_generated_files/spi2.h</itemPath>
+        <itemPath>mcc_generated_files/traps.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -26,13 +26,13 @@
       <logicalFolder name="MCC Generated Files"
                      displayName="MCC Generated Files"
                      projectFiles="true">
-        <itemPath>MCC_generated_files/dma.c</itemPath>
-        <itemPath>MCC_generated_files/interrupt_manager.c</itemPath>
-        <itemPath>MCC_generated_files/mcc.c</itemPath>
-        <itemPath>MCC_generated_files/pin_manager.c</itemPath>
-        <itemPath>MCC_generated_files/spi1.c</itemPath>
-        <itemPath>MCC_generated_files/spi2.c</itemPath>
-        <itemPath>MCC_generated_files/traps.c</itemPath>
+        <itemPath>mcc_generated_files/dma.c</itemPath>
+        <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
+        <itemPath>mcc_generated_files/mcc.c</itemPath>
+        <itemPath>mcc_generated_files/pin_manager.c</itemPath>
+        <itemPath>mcc_generated_files/spi1.c</itemPath>
+        <itemPath>mcc_generated_files/spi2.c</itemPath>
+        <itemPath>mcc_generated_files/traps.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
