@@ -8,16 +8,16 @@
     spi1.h
 
   @Summary
-    This is the generated header file for the SPI1 driver using MPLAB(c) Code Configurator
+    This is the generated header file for the SPI1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
   @Description
     This header file provides APIs for driver for SPI1.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - pic24-dspic-pic32mm : v1.26
+        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - pic24-dspic-pic32mm : v1.35
         Device            :  dsPIC33EV256GM102
     The generated drivers are tested against the following:
-        Compiler          :  XC16 1.30
-        MPLAB 	          :  MPLAB X 3.45
+        Compiler          :  XC16 1.31
+        MPLAB 	          :  MPLAB X 3.60
 */
 
 /*
@@ -201,7 +201,7 @@ void SPI1_Initialize (void);
     Refer to SPI1_Initialize() for an example	
  
 */
-        
+
 uint16_t SPI1_Exchange16bit( uint16_t data );
 
 /**

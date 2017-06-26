@@ -9,16 +9,16 @@
     spi2.c
 
   @Summary
-    This is the generated source file for the SPI2 driver using MPLAB(c) Code Configurator
+    This is the generated source file for the SPI2 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
   @Description
     This source file provides APIs for driver for SPI2.
     Generation Information :
-        Product Revision  :  MPLAB(c) Code Configurator - pic24-dspic-pic32mm : v1.26
+        Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - pic24-dspic-pic32mm : v1.35
         Device            :  dsPIC33EV256GM102
     The generated drivers are tested against the following:
-        Compiler          :  XC16 1.30
-        MPLAB 	          :  MPLAB X 3.45
+        Compiler          :  XC16 1.31
+        MPLAB 	          :  MPLAB X 3.60
 */
 
 /*
@@ -196,7 +196,7 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 uint16_t SPI2_Exchange16bit( uint16_t data )
 {
     uint16_t receiveData;
-    
+
     SPI2_Exchange((uint8_t*)&data, (uint8_t*)&receiveData);
 
     return (receiveData);
