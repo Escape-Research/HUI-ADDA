@@ -44,6 +44,12 @@
 
 #include "mcc_generated_files/mcc.h"
 
+// Include the common definitions for this project
+#include "user.h"
+
+// Declaration of global variables
+RUN_STATE gCurrentState = init; 
+
 /*
                          Main application
  */
@@ -61,9 +67,20 @@ int main(void)
     // Disable the Global Interrupts
     //INTERRUPT_GlobalDisable();
 
+    // Simple state machine
     while (1)
     {
-        // Add your application code
+        switch (gCurrentState)
+        {
+            case init:
+                break;
+                
+            case normal:
+                break;
+                
+            case calibration:
+                break;
+        }
     }
     
     return 0;
