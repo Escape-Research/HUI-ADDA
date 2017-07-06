@@ -129,7 +129,6 @@ void SYSTEM_Initialize(void)
     OSCILLATOR_Initialize();
     SPI1_Initialize();
     SPI2_Initialize();
-    DMA_Initialize();
     INTERRUPT_GlobalEnable();
     CORCON_ModeOperatingSet(CORCON_MODE_PORVALUES);
 }

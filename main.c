@@ -47,7 +47,7 @@
 /*
                          Main application
  */
-void main(void)
+int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
@@ -65,6 +65,8 @@ void main(void)
     {
         // Add your application code
     }
+    
+    return 0;
 }
 /**
  End of File

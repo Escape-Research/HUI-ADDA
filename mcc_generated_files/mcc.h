@@ -52,7 +52,6 @@
 #include "traps.h"
 #include "spi2.h"
 #include "spi1.h"
-#include "dma.h"
 
 #define _XTAL_FREQ  60802500UL
 
