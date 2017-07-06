@@ -17,28 +17,24 @@
          <string>class com.microchip.mcc.mcu16.systemManager.clk.Clock</string>
       </entry>
       <entry>
-         <string>Pin Module</string>
-         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
-      </entry>
-      <entry>
          <string>WATCHDOG</string>
          <string>class com.microchip.mcc.mcu16.systemManager.wdt.Wdt</string>
       </entry>
       <entry>
-         <string>DMA</string>
-         <string>class com.microchip.mcc.mcu16.modules.dma_dspic.DMA</string>
+         <string>Pin Module</string>
+         <string>class com.microchip.mcc.mcu16.pinManager.PinManager</string>
       </entry>
       <entry>
          <string>DMT</string>
          <string>class com.microchip.mcc.mcu16.systemManager.dmt.DMT</string>
       </entry>
       <entry>
-         <string>ICD</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
-      </entry>
-      <entry>
          <string>RESET</string>
          <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
+      </entry>
+      <entry>
+         <string>ICD</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
       </entry>
       <entry>
          <string>Interrupt Module</string>
@@ -86,10 +82,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="DIR1"/>
-         <value>Reads from peripheral address, writes to RAM address</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB13"/>
          <value>disabled</value>
       </entry>
@@ -100,10 +92,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB15"/>
          <value>clear</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="FORCE"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FWDT" settingAlias="WDTPS"/>
@@ -138,10 +126,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="SIZE0" alias="8 bit"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="WDTWIN" alias="WIN37"/>
          <value>512</value>
       </entry>
@@ -156,10 +140,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SPIROV" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="MODE2" alias="Continuous, Ping-Pong modes are disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="CNENB"/>
@@ -234,10 +214,6 @@
          <value>768</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACNT3" settingAlias="CNT3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="PPRE" alias="1:1"/>
          <value>3</value>
       </entry>
@@ -294,10 +270,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA1I" settingAlias="priority"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB12" alias="input"/>
          <value>1</value>
       </entry>
@@ -312,10 +284,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB9" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPPS"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="FRMPOL" alias="enabled"/>
@@ -370,16 +338,8 @@
          <value>digital</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="SIZE0"/>
-         <value>16 bit</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="COSC"/>
          <value>FRCDIV</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="CHEN1" alias="disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB8" alias="enabled"/>
@@ -434,10 +394,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAL3" settingAlias="STAL3"/>
-         <value>4096</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB5" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -466,10 +422,6 @@
          <value>none</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="MODE2" alias="One-Shot, Ping-Pong modes are enabled"/>
-         <value>3</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="ClockSwitching"/>
          <value>disabled</value>
       </entry>
@@ -480,10 +432,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FrcPostscalerClock"/>
          <value>3685000</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="DIR3" alias="Reads from RAM address, writes to peripheral address"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc RB9"/>
@@ -554,10 +502,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL2" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB11" alias="input"/>
          <value>1</value>
       </entry>
@@ -587,10 +531,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV" alias="Base clock value/4"/>
-         <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="MODE2" alias="Continuous, Ping-Pong modes are enabled"/>
          <value>2</value>
       </entry>
       <entry>
@@ -658,20 +598,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL0" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB7" alias="output"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB12"/>
          <value>clear</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="NULLW3"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELB" settingAlias="ANSB7"/>
@@ -686,23 +618,11 @@
          <value>AVAILABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA0I" settingAlias="flag"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="CF"/>
          <value>no clock failure</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="MODE2"/>
-         <value>Continuous, Ping-Pong modes are disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPINR19"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAH2" settingAlias="STAH2"/>
          <value>0</value>
       </entry>
       <entry>
@@ -712,10 +632,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB12" alias="clear"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="DIR0" alias="Reads from RAM address, writes to peripheral address"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA4" alias="analog"/>
@@ -732,14 +648,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="WDTPS" alias="PS256"/>
          <value>8</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPAD0" settingAlias="PAD0"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL0" alias="enabled"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELB" settingAlias="ANSB8"/>
@@ -806,10 +714,6 @@
          <value>ISR_SPI1_SPII</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL1" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB10" alias="input"/>
          <value>1</value>
       </entry>
@@ -850,10 +754,6 @@
          <value>15</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="ECAN1 RX"/>
-         <value>34</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="PLLPRE" alias="18"/>
          <value>16</value>
       </entry>
@@ -876,18 +776,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="SDO1"/>
          <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPAD3"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACNT2"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPAD2"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDA" settingAlias="CNPDA2" alias="enabled"/>
@@ -918,10 +806,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="DIR2"/>
-         <value>Reads from peripheral address, writes to RAM address</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FWDT" settingAlias="FWDTEN"/>
          <value>OFF</value>
       </entry>
@@ -930,48 +814,16 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACNT3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="PLLPRE" alias="33"/>
          <value>31</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPAD1"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPINR7" settingAlias="IC1R"/>
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACNT2" settingAlias="CNT2"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="OC4"/>
-         <value>26</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="ECAN1 TX"/>
-         <value>70</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="OC3"/>
-         <value>25</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB1" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="OC2"/>
-         <value>6</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="OC1"/>
-         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB7"/>
@@ -998,19 +850,11 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL1" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="COSC" alias="PRIPLL"/>
          <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB3" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACNT0"/>
          <value>0</value>
       </entry>
       <entry>
@@ -1058,10 +902,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPAD0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="PLLPRE" alias="20"/>
          <value>18</value>
       </entry>
@@ -1084,10 +924,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB6"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACNT1"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMT" registerAlias="DMTCLR"/>
@@ -1114,14 +950,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="MODE0" alias="One-Shot, Ping-Pong modes are disabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB0"/>
          <value>output</value>
       </entry>
@@ -1130,24 +958,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="NULLW3" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUA" settingAlias="CNPUA0"/>
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="AMODE1" alias="Register Indirect without Post-Increment mode"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureSoscEnable"/>
          <value>UNSUPPORTED</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="UART2 RX"/>
-         <value>30</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB3"/>
@@ -1162,28 +978,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="OC4"/>
-         <value>26</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="OC3"/>
-         <value>25</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="OC2"/>
-         <value>6</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="OC1"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SSEN" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="SPI1"/>
-         <value>10</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="GWRP" alias="ON"/>
@@ -1192,10 +988,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SPRE" alias="4:1"/>
          <value>4</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL3" alias="disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB4" alias="disabled"/>
@@ -1214,10 +1006,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="SPI2"/>
-         <value>33</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FSEC" settingAlias="GWRP"/>
          <value>OFF</value>
       </entry>
@@ -1228,10 +1016,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SPISIDL"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0"/>
-         <value>INT0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SPISIDL"/>
@@ -1258,20 +1042,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL2" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_TRMT_COMPLETE"/>
          <value>5</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB4"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="DIR2" alias="Reads from peripheral address, writes to RAM address"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="ROEN" alias="disabled"/>
@@ -1290,32 +1066,12 @@
          <value>Middle</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="HALF2" alias="Initiates interrupt when all of the data has been moved"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SPIROV" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="RESET" registerAlias="RCON" settingAlias="SLEEP" alias="disabled"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="IC4"/>
-         <value>38</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="IC3"/>
-         <value>37</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="IC2"/>
-         <value>5</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="IC1"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SMP"/>
@@ -1358,16 +1114,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="ECAN1 TX"/>
-         <value>70</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMT" registerAlias="DMTPRECLR" settingAlias="STEP1"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="CHEN1" alias="enabled"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELB" settingAlias="ANSB0"/>
@@ -1426,10 +1174,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="FORCE" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="GSS" alias="DISABLED"/>
          <value>192</value>
       </entry>
@@ -1444,10 +1188,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB9" alias="input"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="UART2 TX"/>
-         <value>31</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDA" settingAlias="CNPDA0" alias="enabled"/>
@@ -1506,16 +1246,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="UART1 TX"/>
-         <value>12</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="BSS2" alias="OFF"/>
          <value>8</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="NULLW2"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="FRMPOL" alias="enabled"/>
@@ -1524,10 +1256,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="SPRE" alias="5:1"/>
          <value>3</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="SIZE3" alias="8 bit"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RESET" registerAlias="RCON" settingAlias="SLEEP"/>
@@ -1550,32 +1278,12 @@
          <value>AVAILABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAH3" settingAlias="STAH3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureFrcEnable"/>
          <value>AVAILABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="TMR2"/>
-         <value>7</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDA" settingAlias="CNPDA1" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="TMR4"/>
-         <value>27</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="MODE3"/>
-         <value>Continuous, Ping-Pong modes are disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="TMR3"/>
-         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB15" alias="input"/>
@@ -1590,10 +1298,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="TMR5"/>
-         <value>28</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SPIEN" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -1606,44 +1310,20 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="SPI1"/>
-         <value>10</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="AIVTDIS" alias="DISABLE"/>
          <value>32768</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMALCA"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="SPI2"/>
-         <value>33</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="BWRP" alias="OFF"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="UART1 RX"/>
-         <value>11</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV" alias="Base clock value/8192"/>
          <value>13</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPAD1" settingAlias="PAD1"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB0" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="ECAN1 RX"/>
-         <value>34</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV" alias="Base clock value/16384"/>
@@ -1658,10 +1338,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA1I" settingAlias="context"/>
-         <value>OFF</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="CLOCK_PRIMARY"/>
          <value>7370000</value>
       </entry>
@@ -1672,10 +1348,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="COSC" alias="LPRC"/>
          <value>5</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="UART1 RX"/>
-         <value>11</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="SWDTEN"/>
@@ -1690,23 +1362,11 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="NULLW0" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACNT1" settingAlias="CNT1"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB8" alias="clear"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPINR1" settingAlias="INT2R"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBL1" settingAlias="STBL1"/>
          <value>0</value>
       </entry>
       <entry>
@@ -1718,19 +1378,11 @@
          <value>UNSUPPORTED</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="SIZE2"/>
-         <value>16 bit</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB4"/>
          <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="RESET" registerAlias="RCON" settingAlias="WDTO" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="DIR0" alias="Reads from peripheral address, writes to RAM address"/>
          <value>0</value>
       </entry>
       <entry>
@@ -1748,10 +1400,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB5"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="DIR2" alias="Reads from RAM address, writes to peripheral address"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="MSTEN" alias="Master"/>
@@ -1786,14 +1434,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="FORCE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="MODE1" alias="Continuous, Ping-Pong modes are enabled"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_SPIRBF"/>
          <value>3</value>
       </entry>
@@ -1810,20 +1450,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="NULLW3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA2" alias="digital"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="FCKSM"/>
          <value>CSDCMD</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="AMODE0" alias="Register Indirect with Post-Increment mode"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA0" alias="set"/>
@@ -1864,18 +1496,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA1" alias="digital"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="HALF3"/>
-         <value>Initiates interrupt when all of the data has been moved</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="UART1 TX"/>
-         <value>12</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAL1" settingAlias="STAL1"/>
-         <value>4096</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="ROI" alias="enabled"/>
@@ -1934,19 +1554,11 @@
          <value>OFF</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA3I" settingAlias="enable"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPINR22"/>
          <value>33</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="POR" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMALCA" settingAlias="LSTCH"/>
          <value>0</value>
       </entry>
       <entry>
@@ -1966,14 +1578,6 @@
          <value>ISR_SPI2_SPII</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST3"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPAD2" settingAlias="PAD2"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="FWDTEN" alias="ON"/>
          <value>96</value>
       </entry>
@@ -1982,16 +1586,8 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="AMODE3"/>
-         <value>Register Indirect with Post-Increment mode</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB11" alias="set"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="AMODE3" alias="Register Indirect with Post-Increment mode"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB8"/>
@@ -2008,14 +1604,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELB" settingAlias="ANSB2" alias="digital"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="NULLW0" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL1"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR1" settingAlias="RP36R"/>
@@ -2042,20 +1630,12 @@
          <value>32780</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="MODE3" alias="One-Shot, Ping-Pong modes are disabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="RCDIV" alias="FRC/1"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV" settingAlias="RCDIV" alias="FRC/2"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAH0" settingAlias="STAH0"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB14" alias="enabled"/>
@@ -2072,10 +1652,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB9" alias="disabled"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST2"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV"/>
@@ -2102,18 +1678,6 @@
          <value>DISABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DMA" name="DMA_DMA2IISRFunction"/>
-         <value>ISR_DMA_DMA2I</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DMA" name="DMA_DMA1IISRFunction"/>
-         <value>ISR_DMA_DMA1I</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL2"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="EXTR" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -2124,10 +1688,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FWDT" settingAlias="WINDIS"/>
          <value>OFF</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA0I" settingAlias="enable"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="FRMEN" alias="enabled"/>
@@ -2144,14 +1704,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMT" registerAlias="DMTCON"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST1"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="SIZE1" alias="8 bit"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureOscfdivEnable"/>
@@ -2178,22 +1730,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="OC4"/>
-         <value>26</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="OC3"/>
-         <value>25</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="OC2"/>
-         <value>6</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="OC1"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="WDTPS" alias="PS1024"/>
          <value>10</value>
       </entry>
@@ -2206,24 +1742,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="SPI1"/>
-         <value>10</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="SPI2"/>
-         <value>33</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="FORCE" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="AIVTDIS" alias="ENABLE"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST0"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB15"/>
@@ -2270,10 +1790,6 @@
          <value>ISR_SPI2_SPFI</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="NULLW1"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SPRE"/>
          <value>8:1</value>
       </entry>
@@ -2290,14 +1806,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="DIR3"/>
-         <value>Reads from peripheral address, writes to RAM address</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL0"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB9" alias="enabled"/>
          <value>1</value>
       </entry>
@@ -2307,14 +1815,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="CNPDA"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="NULLW0"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBL0" settingAlias="STBL0"/>
          <value>0</value>
       </entry>
       <entry>
@@ -2334,10 +1834,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="HALF2"/>
-         <value>Initiates interrupt when all of the data has been moved</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA4" alias="clear"/>
          <value>0</value>
       </entry>
@@ -2350,36 +1846,16 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="TMR2"/>
-         <value>7</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="CNPDB"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="TMR4"/>
-         <value>27</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="TMR3"/>
-         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA0" alias="analog"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="TMR5"/>
-         <value>28</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC" alias="PRI"/>
          <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="MODE3" alias="One-Shot, Ping-Pong modes are enabled"/>
-         <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL"/>
@@ -2402,10 +1878,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="FORCE"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SPRE" alias="7:1"/>
          <value>1</value>
       </entry>
@@ -2423,10 +1895,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="SWR" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="SIZE2" alias="16 bit"/>
          <value>0</value>
       </entry>
       <entry>
@@ -2448,10 +1916,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FOSC" settingAlias="FCKSM" alias="CSECME"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA3I" settingAlias="flag"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB14"/>
@@ -2542,18 +2006,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="AMODE2" alias="Peripheral Indirect Addressing mode"/>
-         <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="FORCE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="SIZE1"/>
-         <value>16 bit</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB5" alias="set"/>
          <value>1</value>
       </entry>
@@ -2568,10 +2020,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="PllEnable"/>
          <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="CHEN2" alias="enabled"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB11"/>
@@ -2602,32 +2050,8 @@
          <value>output</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACNT0" settingAlias="CNT0"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="IC4"/>
-         <value>38</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="IC3"/>
-         <value>37</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA2" alias="analog"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="IC2"/>
-         <value>5</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="IC1"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAL2" settingAlias="STAL2"/>
-         <value>4096</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRB5"/>
@@ -2730,10 +2154,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPAD3" settingAlias="PAD3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB3"/>
          <value>disabled</value>
       </entry>
@@ -2752,10 +2172,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCTUN" settingAlias="TUN" alias="Center frequency"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="ADC1"/>
-         <value>13</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB5"/>
@@ -2870,10 +2286,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAH1" settingAlias="STAH1"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="SPRE" alias="8:1"/>
          <value>0</value>
       </entry>
@@ -2888,10 +2300,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB4"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="AMODE2" alias="Register Indirect without Post-Increment mode"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMT" registerAlias="DMTPRECLR"/>
@@ -2910,10 +2318,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="CHEN2" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="ClockFrequency"/>
          <value>59377.44140625000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</value>
       </entry>
@@ -2924,14 +2328,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ANSELB"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="MODE1"/>
-         <value>Continuous, Ping-Pong modes are disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="ADC1"/>
-         <value>13</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA3" alias="set"/>
@@ -2950,16 +2346,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="HALF1" alias="Initiates interrupt when half of the data has been moved"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="CKE" alias="Idle to Active"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="MODE0" alias="One-Shot, Ping-Pong modes are enabled"/>
-         <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB4" alias="clear"/>
@@ -3011,10 +2399,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FPOR" settingAlias="BOREN0" alias="OFF"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="DIR3" alias="Reads from peripheral address, writes to RAM address"/>
          <value>0</value>
       </entry>
       <entry>
@@ -3070,20 +2454,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="CHEN3"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB2" alias="set"/>
          <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB2"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="INT0"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB11" alias="disabled"/>
@@ -3104,10 +2480,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="ANSELA"/>
          <value>23</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="UART2 TX"/>
-         <value>31</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="SPRE" alias="2:1"/>
@@ -3194,26 +2566,6 @@
          <value>11</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="CHEN2"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="IC4"/>
-         <value>38</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="IC3"/>
-         <value>37</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="IC2"/>
-         <value>5</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="IC1"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR2" settingAlias="RP39R"/>
          <value>0</value>
       </entry>
@@ -3222,16 +2574,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="NULLW1" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB0" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="UART2 RX"/>
-         <value>30</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC" alias="PRIPLL"/>
@@ -3278,20 +2622,8 @@
          <value>5</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL1" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCTUN" settingAlias="TUN" alias="Maximum frequency deviation"/>
          <value>31</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3"/>
-         <value>INT0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="MODE2" alias="One-Shot, Ping-Pong modes are disabled"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="VREGSF" alias="enabled"/>
@@ -3320,10 +2652,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB9" alias="disabled"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="HALF1"/>
-         <value>Initiates interrupt when all of the data has been moved</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CORCON" settingAlias="RND" alias="enabled"/>
@@ -3374,10 +2702,6 @@
          <value>2</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FICD" settingAlias="ICS" alias="PGx3"/>
          <value>1</value>
       </entry>
@@ -3392,10 +2716,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FPOR" settingAlias="BOREN0" alias="ON"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="UART2 TX"/>
-         <value>31</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPINR39"/>
@@ -3418,10 +2738,6 @@
          <value>Master</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL3" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPII" settingAlias="enable"/>
          <value>disabled</value>
       </entry>
@@ -3435,10 +2751,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB9" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="HALF2" alias="Initiates interrupt when half of the data has been moved"/>
          <value>1</value>
       </entry>
       <entry>
@@ -3510,16 +2822,8 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="TMR4"/>
-         <value>27</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RESET" registerAlias="RCON" settingAlias="BOR"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="TMR3"/>
-         <value>8</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SRMPT" alias="disabled"/>
@@ -3534,32 +2838,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="TMR5"/>
-         <value>28</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="TMR2"/>
-         <value>7</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="UART2 RX"/>
-         <value>30</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="SPIBEN" alias="disabled"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL2" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="SPI2"/>
-         <value>33</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="SPI1"/>
-         <value>10</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="ROSSLP" alias="enabled"/>
@@ -3594,10 +2874,6 @@
          <value>Idle:Low, Active:High</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="TMR5"/>
-         <value>28</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPII" settingAlias="priority"/>
          <value>1</value>
       </entry>
@@ -3606,24 +2882,8 @@
          <value>Idle:Low, Active:High</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="TMR2"/>
-         <value>7</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPII" settingAlias="priority"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="TMR4"/>
-         <value>27</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="TMR3"/>
-         <value>8</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="DIR1" alias="Reads from peripheral address, writes to RAM address"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="SPIBEN" alias="enabled"/>
@@ -3644,14 +2904,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB0" alias="clear"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="ECAN1 RX"/>
-         <value>34</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="UART1 RX"/>
-         <value>11</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB7" alias="disabled"/>
@@ -3706,10 +2958,6 @@
          <value>NONE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="HALF0" alias="Initiates interrupt when all of the data has been moved"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB14"/>
          <value>output</value>
       </entry>
@@ -3718,20 +2966,12 @@
          <value>UNSUPPORTED</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="AMODE3" alias="Register Indirect without Post-Increment mode"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCA" settingAlias="ODCA0" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB6" alias="set"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="ECAN1 TX"/>
-         <value>70</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc MCLR"/>
@@ -3758,24 +2998,12 @@
          <value>7370000</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="AMODE1"/>
-         <value>Register Indirect with Post-Increment mode</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="TRAPR" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA2I" settingAlias="context"/>
-         <value>OFF</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_ENHBUF_EMPTY"/>
          <value>6</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBH1" settingAlias="STBH1"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="DISSDO" alias="enabled"/>
@@ -3794,10 +3022,6 @@
          <value>output</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBL2"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FDEVOPT" settingAlias="ALTI2C1"/>
          <value>OFF</value>
       </entry>
@@ -3808,10 +3032,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="SLEEP" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAINT3"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name MCLR"/>
@@ -3828,10 +3048,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB15" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBL3"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCA" settingAlias="ODCA0" alias="enabled"/>
@@ -3854,40 +3070,16 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBL0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SRMPT"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBL2" settingAlias="STBL2"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="WATCHDOG" name="clockSourceSelect"/>
          <value>CLOCK_LPRC</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="IC4"/>
-         <value>38</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="IC3"/>
-         <value>37</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="IC2"/>
-         <value>5</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FOSC" settingAlias="OSCIOFCN"/>
          <value>ON</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="IC1"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB8" alias="disabled"/>
@@ -3922,10 +3114,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="AMODE0" alias="Register Indirect without Post-Increment mode"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_ENHBUF_1SPOT"/>
          <value>4</value>
       </entry>
@@ -3938,23 +3126,7 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="HALF3" alias="Initiates interrupt when all of the data has been moved"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="UART1 TX"/>
-         <value>12</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB12" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBL1"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAPWC"/>
          <value>0</value>
       </entry>
       <entry>
@@ -3968,14 +3140,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUA" settingAlias="CNPUA4" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="CHEN1"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="FORCE" alias="disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FOSC" settingAlias="FCKSM" alias="CSDCMD"/>
@@ -4006,10 +3170,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA0I" settingAlias="priority"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB5"/>
          <value>disabled</value>
       </entry>
@@ -4030,10 +3190,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAINT0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON"/>
          <value>0</value>
       </entry>
@@ -4046,24 +3202,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="MODE3" alias="Continuous, Ping-Pong modes are enabled"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="BWRP" alias="ON"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="HALF0"/>
-         <value>Initiates interrupt when all of the data has been moved</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="MODE0"/>
-         <value>Continuous, Ping-Pong modes are disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB12" alias="enabled"/>
@@ -4078,16 +3218,8 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAINT1"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="CNPUA"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="ADC1"/>
-         <value>13</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR11" settingAlias="RP178R"/>
@@ -4106,16 +3238,8 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA2I" settingAlias="enable"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR4" settingAlias="RP43R"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="SIZE3"/>
-         <value>16 bit</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FDEVOPT" settingAlias="PWMLOCK"/>
@@ -4127,10 +3251,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FOSC" settingAlias="OSCIOFCN" alias="ON"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMAINT2"/>
          <value>0</value>
       </entry>
       <entry>
@@ -4182,10 +3302,6 @@
          <value>Idle to Active</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTAL0" settingAlias="STAL0"/>
-         <value>4096</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB6" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -4210,10 +3326,6 @@
          <value>clear</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="CHEN3" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPINR1"/>
          <value>0</value>
       </entry>
@@ -4228,10 +3340,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="DISSDO" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL3"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPINR7" settingAlias="IC2R"/>
@@ -4262,10 +3370,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="INT0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="LATA" settingAlias="LATA3"/>
          <value>clear</value>
       </entry>
@@ -4282,15 +3386,7 @@
          <value>ISR_SPI1_SPFI</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="FORCE" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="NULLW1" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
@@ -4326,10 +3422,6 @@
          <value>AVAILABLE</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST1" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_SPITBF"/>
          <value>7</value>
       </entry>
@@ -4346,20 +3438,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST3" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCA" settingAlias="ODCA3" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUA" settingAlias="CNPUA1" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="AMODE2"/>
-         <value>Register Indirect with Post-Increment mode</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FSEC" settingAlias="GWRP" alias="OFF"/>
@@ -4410,19 +3494,11 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="MODE3" alias="Continuous, Ping-Pong modes are disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SRMPT" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="RESET" registerAlias="RCON" settingAlias="IDLE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="SIZE1" alias="16 bit"/>
          <value>0</value>
       </entry>
       <entry>
@@ -4438,10 +3514,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="DIR1" alias="Reads from RAM address, writes to peripheral address"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="SOSCPinsOutput"/>
          <value>disabled</value>
       </entry>
@@ -4454,20 +3526,8 @@
          <value>64</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="AMODE1" alias="Peripheral Indirect Addressing mode"/>
-         <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="AMODE1" alias="Register Indirect with Post-Increment mode"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_BUF_EMPTY2NOT"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA1I" settingAlias="flag"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPINR19" settingAlias="U2RXR"/>
@@ -4518,10 +3578,6 @@
          <value>6</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBH3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPINR18" settingAlias="U1RXR"/>
          <value>0</value>
       </entry>
@@ -4548,10 +3604,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureClockChange"/>
          <value>AVAILABLE</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="MODE0" alias="Continuous, Ping-Pong modes are disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="ioc RB12"/>
@@ -4582,10 +3634,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="MODE0" alias="Continuous, Ping-Pong modes are enabled"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB7"/>
          <value>disabled</value>
       </entry>
@@ -4614,10 +3662,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBH0" settingAlias="STBH0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="FRMEN" alias="disabled"/>
          <value>0</value>
       </entry>
@@ -4636,10 +3680,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="FWDTEN" alias="ON_SWDTEN"/>
          <value>64</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA3I" settingAlias="priority"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNPUA" settingAlias="CNPUA2" alias="enabled"/>
@@ -4714,10 +3754,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBH0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRB12"/>
          <value>disabled</value>
       </entry>
@@ -4732,14 +3768,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="trisUserSetRB14"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST2" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBH2"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CLKDIV"/>
@@ -4760,10 +3788,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC" alias="LPRC"/>
          <value>5</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTBH1"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureAuxClockEnable"/>
@@ -4802,18 +3826,6 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1"/>
-         <value>INT0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="ECAN1 TX"/>
-         <value>70</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="CHEN0" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_ENHBUF_1SPOT"/>
          <value>4</value>
       </entry>
@@ -4838,24 +3850,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="HALF1" alias="Initiates interrupt when all of the data has been moved"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB15" alias="output"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB7"/>
          <value>input</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="SIZE0" alias="16 bit"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST0" alias="disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPIBUF" settingAlias="SPIBUF"/>
@@ -4872,10 +3872,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FrcEnable"/>
          <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMARQC"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="FICD"/>
@@ -4918,10 +3914,6 @@
          <value>80</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA0I" settingAlias="context"/>
-         <value>OFF</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FALTREG" settingAlias="CTXT2" alias="IPL1"/>
          <value>0</value>
       </entry>
@@ -4942,10 +3934,6 @@
          <value>96</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="CHEN0"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SRXMPT" alias="enabled"/>
          <value>1</value>
       </entry>
@@ -4958,19 +3946,7 @@
          <value>output</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="MODE1" alias="One-Shot, Ping-Pong modes are enabled"/>
-         <value>3</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENA" settingAlias="CNIEA1" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="AMODE0" alias="Peripheral Indirect Addressing mode"/>
-         <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="SIZE3" alias="16 bit"/>
          <value>0</value>
       </entry>
       <entry>
@@ -4984,14 +3960,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="IOPUWR" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAL1"/>
-         <value>4096</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST2" alias="disabled"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB9"/>
@@ -5008,10 +3976,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="System Module" registerAlias="FSEC" settingAlias="GSS"/>
          <value>DISABLED</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT0" settingAlias="IRQSEL0" alias="INT0"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet MCLR"/>
@@ -5034,10 +3998,6 @@
          <value>UNSUPPORTED</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="AMODE0"/>
-         <value>Register Indirect with Post-Increment mode</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FeatureAuxClockPostscaler"/>
          <value>UNSUPPORTED</value>
       </entry>
@@ -5047,10 +4007,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB7" alias="input"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST0" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
@@ -5072,10 +4028,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RESET" registerAlias="RCON" settingAlias="IOPUWR"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAL2"/>
-         <value>4096</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FALTREG" settingAlias="CTXT1" alias="IPL4"/>
@@ -5110,16 +4062,8 @@
          <value>2</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="ECAN1 RX"/>
-         <value>34</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB8" alias="input"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA3I" settingAlias="context"/>
-         <value>OFF</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="Custom Name RB6"/>
@@ -5170,24 +4114,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAL0"/>
-         <value>4096</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPPS" settingAlias="PPST1" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR13" settingAlias="RP181R"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FOSCSEL" settingAlias="FNOSC" alias="PRI"/>
          <value>2</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA2I" settingAlias="flag"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPUB" settingAlias="CNPUB13"/>
@@ -5262,10 +4194,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBH3" settingAlias="STBH3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB3" alias="input"/>
          <value>1</value>
       </entry>
@@ -5294,20 +4222,12 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA2I" settingAlias="priority"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="BOR" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="SPI1" registerAlias="SPICON2"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="IRQSEL3" alias="INT0"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="anselUserSetRB2"/>
@@ -5332,10 +4252,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMT" registerAlias="DMTCON" settingAlias="ON" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL0"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI2" name="DataModeSelect"/>
@@ -5386,10 +4302,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAL3"/>
-         <value>4096</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FOSC" settingAlias="POSCMOD" alias="NONE"/>
          <value>3</value>
       </entry>
@@ -5418,28 +4330,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="MODE1" alias="Continuous, Ping-Pong modes are disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="HALF0" alias="Initiates interrupt when half of the data has been moved"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV" alias="Base clock value/16"/>
          <value>4</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="ADC1"/>
-         <value>13</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB8"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="UART2 RX"/>
-         <value>30</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="DataModeSelect"/>
@@ -5456,10 +4352,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="INTERNAL OSCILLATOR" registerAlias="CORCON" settingAlias="SATB"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="AMODE3" alias="Peripheral Indirect Addressing mode"/>
-         <value>2</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="FrcPostscaler"/>
@@ -5484,10 +4376,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="System Module" registerAlias="FDMTINTVL"/>
          <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="FORCE"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="PPRE" alias="16:1"/>
@@ -5522,20 +4410,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="CHEN0" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB4" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="SDI1"/>
          <value>enabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="HALF3" alias="Initiates interrupt when half of the data has been moved"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB4"/>
@@ -5579,10 +4459,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENA" settingAlias="CNIEA3" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH3" settingAlias="CHEN3" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
@@ -5639,14 +4515,6 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="LOCK" alias="in lock"/>
-         <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2"/>
-         <value>INT0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="FORCE" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
@@ -5714,10 +4582,6 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="IRQSEL1" alias="UART2 TX"/>
-         <value>31</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENA" settingAlias="CNIEA4" alias="enabled"/>
          <value>1</value>
       </entry>
@@ -5766,10 +4630,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMACH0" settingAlias="DIR0"/>
-         <value>Reads from peripheral address, writes to RAM address</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="RESET" registerAlias="RCON" settingAlias="SWR"/>
          <value>disabled</value>
       </entry>
@@ -5806,10 +4666,6 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="AMODE2" alias="Register Indirect with Post-Increment mode"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="RPOR10" settingAlias="RP176R"/>
          <value>0</value>
       </entry>
@@ -5830,24 +4686,8 @@
          <value>15</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="UART1 TX"/>
-         <value>12</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="RODIV" alias="Base clock value/1024"/>
          <value>10</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL3"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAH1"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="SIZE2" alias="8 bit"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB15" alias="disabled"/>
@@ -5878,18 +4718,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAH3"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL2"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAH2"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPOR4"/>
          <value>0</value>
       </entry>
@@ -5900,10 +4728,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SPIROV" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="UART1 RX"/>
-         <value>11</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPOR2"/>
@@ -5954,20 +4778,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMASTAH0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="SPRE" alias="5:1"/>
          <value>3</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB13" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMARQC" settingAlias="RQCOL1"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="OSCCON" settingAlias="NOSC" alias="SOSC"/>
@@ -5986,24 +4802,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH0"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="CKP" alias="Idle:Low, Active:High"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBH2" settingAlias="STBH2"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB14" alias="enabled"/>
          <value>1</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMAINT3" settingAlias="FORCE"/>
-         <value>disabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SPIRBF" alias="disabled"/>
@@ -6050,19 +4854,11 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT1" settingAlias="FORCE" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISA" settingAlias="TRISA1" alias="output"/>
          <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SPIBEC" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL2" alias="disabled"/>
          <value>0</value>
       </entry>
       <entry>
@@ -6074,26 +4870,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="NULLW2" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DMA" name="DMA_DMA0IISRFunction"/>
-         <value>ISR_DMA_DMA0I</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="OC4"/>
-         <value>26</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="OC3"/>
-         <value>25</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="OC2"/>
-         <value>6</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="TRISB" settingAlias="TRISB0" alias="output"/>
          <value>0</value>
       </entry>
@@ -6102,16 +4878,8 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAINT2" settingAlias="IRQSEL2" alias="OC1"/>
-         <value>2</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="INTERNAL OSCILLATOR" name="PllDivisor"/>
          <value>1:66</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH1" settingAlias="MODE1" alias="One-Shot, Ping-Pong modes are disabled"/>
-         <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDA" settingAlias="CNPDA4"/>
@@ -6146,10 +4914,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL0" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="FWPSA" alias="PR128"/>
          <value>16</value>
       </entry>
@@ -6170,20 +4934,8 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMASTBL3" settingAlias="STBL3"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDA" settingAlias="CNPDA1"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="DMA" name="DMA_DMA3IISRFunction"/>
-         <value>ISR_DMA_DMA3I</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH3"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB8" alias="disabled"/>
@@ -6210,10 +4962,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL0" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="iocUserSet RA0"/>
          <value>disabled</value>
       </entry>
@@ -6238,10 +4986,6 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMACH2" settingAlias="NULLW2" alias="enabled"/>
-         <value>1</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPFI" settingAlias="context"/>
          <value>OFF</value>
       </entry>
@@ -6252,10 +4996,6 @@
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RB0"/>
          <value>disabled</value>
-      </entry>
-      <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH2"/>
-         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="customNameUserSet RA0"/>
@@ -6310,10 +5050,6 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="DMA" registerAlias="DMACH1"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNI" settingAlias="priority"/>
          <value>1</value>
       </entry>
@@ -6350,10 +5086,6 @@
          <value>2</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="DMA" registerAlias="DMAPWC" settingAlias="PWCOL1" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="SPRE" alias="6:1"/>
          <value>2</value>
       </entry>
@@ -6374,10 +5106,6 @@
          <value>output</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="DMA" registerAlias="DMA1I" settingAlias="enable"/>
-         <value>disabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RB12"/>
          <value>output</value>
       </entry>
@@ -6392,20 +5120,16 @@
          <hash>6bb99bb68d4dfa839e5f98030d710bd88b2156d0eb7dcd8b512aa5da5b988979</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/spi1.c</file>
-         <hash>393168b9c1c1601b28a763e5db0dcc23c792f220efc3aabc4bdc9178beb72872</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/pin_manager.h</file>
          <hash>494b82e23bc4c4c5c25fa56d9521d9d54fd996300b620bf143cca64c1087064a</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/spi2.c</file>
-         <hash>d02b62fef7eee4a5422992a3393c9a92ac8b82fd21782b8923159424cfee0041</hash>
+         <file>mcc_generated_files/spi1.c</file>
+         <hash>393168b9c1c1601b28a763e5db0dcc23c792f220efc3aabc4bdc9178beb72872</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/dma.h</file>
-         <hash>038beed3efa3d5d81b5dba9e9d6fe5c4405dd281c81cf46085765d883e857caa</hash>
+         <file>mcc_generated_files/spi2.c</file>
+         <hash>d02b62fef7eee4a5422992a3393c9a92ac8b82fd21782b8923159424cfee0041</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/traps.h</file>
@@ -6424,12 +5148,8 @@
          <hash>0b18bded9d2437a26a0f9ef81639e0682111d7c5e90f3f9f4ee1abee58d9e35d</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/dma.c</file>
-         <hash>33deeaf73572a8094fdaad1bc40d5a556951f1f37d6b277333ca5b59bea6d7f6</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files/mcc.h</file>
-         <hash>6a23760638efe8d287ea8a1f6a2189406d0a9a325952325f8161ab3c44f1f870</hash>
+         <hash>86088ceb34a13beb08ec579638a0947fa1d1ce4d852fb849228a009b87993cfd</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/interrupt_manager.c</file>
@@ -6437,7 +5157,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files/mcc.c</file>
-         <hash>e56161be8243c91ee59499887429c6831950b3530f1f8efd9a1ea744e339d369</hash>
+         <hash>b126023c63b746c4a80c0a9c1fe911a81d8711344f1dee6a11f3ff4f5154a225</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/pin_manager.c</file>
