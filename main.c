@@ -73,6 +73,7 @@ int main(void)
         switch (gCurrentState)
         {
             case init:
+                    // Load any 
                 break;
                 
             case normal:

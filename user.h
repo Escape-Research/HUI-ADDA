@@ -37,14 +37,16 @@
 
 // TODO Insert C++ class definitions if appropriate
 
+// Global declarations
+
 typedef enum tagRUN_STATE {
     init        = 0,
     normal      = 1,
     calibration = 2
 } RUN_STATE;
+extern RUN_STATE gCurrentState;
 
-// TODO Insert declarations
-extern RUN_STATE gCurrentState; 
+
 
 // Comment a function and leverage automatic documentation with slash star star
 /**
