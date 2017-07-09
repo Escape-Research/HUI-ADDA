@@ -13,8 +13,6 @@
 
 // Global declarations
 
-// Flash storage of coefficients
-extern const int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashStorage[_FLASH_PAGE * 2];
 
 // The calibration coefficients in RAM
 //extern unsigned int gCoefficients[8][4] = { 0 };

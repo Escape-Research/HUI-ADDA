@@ -10,6 +10,9 @@
 #include "user.h"
 #include "flash.h"
 
+// Allocation on user flash prog 
+const int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashStorage[_FLASH_PAGE * 2] = { };
+
 void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {
     int offset, i;
@@ -18,7 +21,7 @@ void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
     
     TBLPAG = __builtin_tblpage(gFlashStorage);
     offset = __builtin_tbloffset(gFlashStorage);
-    offset &= 0xF800; // set to base of page
+    offset &= 0xFBFF; // set to base of page (original: F800)
     
     for (i = 0; i < nBufferSize; i += 2)
     {
@@ -39,7 +42,7 @@ void eraseFlashStorage()
     
     NVMADRU = __builtin_tblpage(gFlashStorage);
     offset = __builtin_tbloffset(gFlashStorage);
-    NVMADR = (offset & 0xF800); // for page size of 1024 PM Words
+    NVMADR = (offset & 0xFBFF); // for page size of 1024 PM Words (original F800)
     
     // set WREN and page erase in NVMCON
     NVMCON = 0x4003;
@@ -48,7 +51,7 @@ void eraseFlashStorage()
     __builtin_write_NVM();  // initiate write process
 }
 
-void rowFlashWrite(unsigned int *pRAMBuffer, int nBufferSize)
+void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {
     int offset, i;
     TBLPAG = 0xFA;  // base address of write latches
@@ -61,18 +64,17 @@ void rowFlashWrite(unsigned int *pRAMBuffer, int nBufferSize)
         __builtin_tblwth(offset, pRAMBuffer[i]);
         offset += 2;
     }
-    
+
     // Set the destination address into the NVM address registers
     NVMADRU = __builtin_tblpage(gFlashStorage);
     offset = __builtin_tbloffset(gFlashStorage);
-    NVMADR = (offset & 0xF800); // for page size of 1024 PM words
-    
+    NVMADR = (offset & 0xFBFF); // for page size of 1024 PM words (original F800)
+
     // Set WREN and enable row write in NVMCON
     NVMCON = 0x4002;
-    
+
     __builtin_disi(6);      // disable interrupts
     __builtin_write_NVM();  // initiate write process
-    
 }
 
 

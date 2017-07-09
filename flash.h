@@ -10,6 +10,12 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+// Flash storage of coefficients
+extern const int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashStorage[_FLASH_PAGE * 2];
+
+void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize);
+void eraseFlashStorage();
+void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize);
 
 #ifdef	__cplusplus
 extern "C" {
