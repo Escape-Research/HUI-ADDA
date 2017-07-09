@@ -10,4 +10,5 @@
 #include "user.h"
 
 // The calibration coefficients in RAM
-//unsigned int gCoefficients[8][4] = { 0 };
+unsigned int gCoefficients[8][4] = { };
+

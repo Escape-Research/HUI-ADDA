@@ -46,6 +46,7 @@
 
 // Include the common definitions for this project
 #include "user.h"
+#include "flash.h"
 
 // Declaration of global variables
 RUN_STATE gCurrentState = init; 
@@ -73,13 +74,19 @@ int main(void)
         switch (gCurrentState)
         {
             case init:
-                    // Load any 
+                // Load coefficients from flash
+                readFromFlash(gCoefficients, 32);
                 break;
                 
             case normal:
                 break;
                 
             case calibration:
+                // Do calibration
+                // ...
+                
+                // Save coefficients in flash
+                writeToFlash(gCoefficients, 32);
                 break;
         }
     }

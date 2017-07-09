@@ -56,12 +56,21 @@ void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
     int offset, i;
     TBLPAG = 0xFA;  // base address of write latches
     
+    // Prepare the buffer
+    int intBuffer[_FLASH_ROW * 2];
+    int j = 0;
+    for (i = 0; i < nBufferSize * 2; i++)
+    {
+        intBuffer[i++] = pRAMBuffer[j] & 0xFF;
+        intBuffer[i] = pRAMBuffer[j++] >> 8;
+    }
+    
     // Load row of data into write latches
     offset = 0;
-    for (i = 0; i < _FLASH_ROW * 2; i++)
+    for (i = 0; i < nBufferSize * 2; i++)
     {
-        __builtin_tblwtl(offset, pRAMBuffer[i++]);
-        __builtin_tblwth(offset, pRAMBuffer[i]);
+        __builtin_tblwtl(offset, intBuffer[i++]);
+        __builtin_tblwth(offset, intBuffer[i]);
         offset += 2;
     }
 

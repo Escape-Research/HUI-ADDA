@@ -15,7 +15,7 @@
 
 
 // The calibration coefficients in RAM
-//extern unsigned int gCoefficients[8][4] = { 0 };
+extern unsigned int gCoefficients[8][4];
 
 // Machine States
 typedef enum tagRUN_STATE {
