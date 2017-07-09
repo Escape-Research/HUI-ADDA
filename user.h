@@ -25,6 +25,31 @@ typedef enum tagRUN_STATE {
 } RUN_STATE;
 extern RUN_STATE gCurrentState;
 
+typedef union tagLTC1867Config {
+    struct {
+        unsigned SD :1;
+        unsigned OS :1;
+        unsigned S1 :1;
+        unsigned S0 :1;
+        unsigned COM :1;
+        unsigned UNI :1;
+        unsigned SLP :1;    
+        unsigned :9;
+    } BITS;
+    struct {
+        unsigned word :16;
+    };
+} LTC1867Config;
+extern LTC1867Config gLTC1867Commands[8];
+
+// Process A/D jobs
+void processADPolling();
+                
+// Process transformations
+void processTXJobs();
+                
+// Process D/A jobs
+void processDAUpdates();
 
 
 #ifdef	__cplusplus

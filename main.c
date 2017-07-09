@@ -71,8 +71,6 @@ int main(void)
     // Simple state machine
     while (1)
     {
-        int curr_fader = 0;
-        
         switch (gCurrentState)
         {
             case init:
@@ -83,12 +81,16 @@ int main(void)
                 
             case normal:
                 
-                // Process the next fader
-                // ...
+                // We are implementing a form of "non preemptive" multi-tasking
                 
-                // Round-robin the current fader variable
-                curr_fader++;
-                curr_fader = curr_fader % 8;
+                // Process A/D jobs
+                processADPolling();
+                
+                // Process transformations
+                processTXJobs();
+                
+                // Process D/A jobs
+                processDAUpdates();
                 
                 break;
                 
@@ -98,6 +100,7 @@ int main(void)
                 // ...
                 
                 // Save coefficients in flash
+                eraseFlashStorage();
                 writeToFlash((unsigned int *)gCoefficients, 32);
                 break;
         }
