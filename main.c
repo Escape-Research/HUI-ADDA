@@ -71,22 +71,34 @@ int main(void)
     // Simple state machine
     while (1)
     {
+        int curr_fader = 0;
+        
         switch (gCurrentState)
         {
             case init:
+                
                 // Load coefficients from flash
-                readFromFlash(gCoefficients, 32);
+                readFromFlash((unsigned int *)gCoefficients, 32);
                 break;
                 
             case normal:
+                
+                // Process the next fader
+                // ...
+                
+                // Round-robin the current fader variable
+                curr_fader++;
+                curr_fader = curr_fader % 8;
+                
                 break;
                 
             case calibration:
+                
                 // Do calibration
                 // ...
                 
                 // Save coefficients in flash
-                writeToFlash(gCoefficients, 32);
+                writeToFlash((unsigned int *)gCoefficients, 32);
                 break;
         }
     }
