@@ -1,17 +1,17 @@
 /**
-  TMR1 Generated Driver API Header File 
+  TMR2 Generated Driver API Header File 
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    tmr1.h
+    tmr2.h
 
   @Summary
-    This is the generated header file for the TMR1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
+    This is the generated header file for the TMR2 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
   @Description
-    This header file provides APIs for driver for TMR1. 
+    This header file provides APIs for driver for TMR2. 
     Generation Information : 
         Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - pic24-dspic-pic32mm : v1.35
         Device            :  dsPIC33EV256GM102
@@ -42,8 +42,8 @@
     TERMS.
 */
 
-#ifndef _TMR1_H
-#define _TMR1_H
+#ifndef _TMR2_H
+#define _TMR2_H
 
 /**
   Section: Included Files
@@ -59,6 +59,7 @@
 
 #endif
 
+#define TMR2_INTERRUPT_TICKER_FACTOR    1
 
 /**
   Section: Interface Routines
@@ -87,47 +88,27 @@
 
     period = 0x20;
 
-    TMR1_Initialize();
+    TMR2_Initialize();
 
-    TMR1_Period16BitSet(period);
+    TMR2_Period16BitSet(period);
 
-    if((value = TMR1_Period16BitGet())== period)
+    if((value = TMR2_Period16BitGet())== period)
     {
-        TMR1_Start();
+        TMR2_Start();
     }
 
     while(1)
     {
-        TMR1_Tasks();
-        if( (statusTimer1 = TMR1_GetElapsedThenClear()) == true)
+        TMR2_Tasks();
+        if( (statusTimer1 = TMR2_GetElapsedThenClear()) == true)
         {
-            TMR1_Stop();
+            TMR2_Stop();
         }
     }
     </code>
 */
-void TMR1_Initialize (void);
+void TMR2_Initialize (void);
 
-
-/**
-  @Summary
-    Used to maintain the driver's state machine and implement its ISR
-
-  @Description
-    This routine is used to maintain the driver's internal state machine and
-    implement its ISR for interrupt-driven implementations.
-
-  @Param
-    None.
-
-  @Returns
-    None
- 
-  @Example 
-    Refer to the example of TMR1_Initialize();
-*/
-
-void TMR1_Tasks_16BitOperation( void );
 
 /**
   @Summary
@@ -143,10 +124,10 @@ void TMR1_Tasks_16BitOperation( void );
     None
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-void TMR1_Period16BitSet( uint16_t value );
+void TMR2_Period16BitSet( uint16_t value );
 
 /**
 
@@ -163,10 +144,10 @@ void TMR1_Period16BitSet( uint16_t value );
     Timer 16-bit period value
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-uint16_t TMR1_Period16BitGet( void );
+uint16_t TMR2_Period16BitGet( void );
 
 /**
   @Summary
@@ -185,20 +166,20 @@ uint16_t TMR1_Period16BitGet( void );
     <code>
     uint16_t value=0xF0F0;
 
-    TMR1_Counter16BitSet(value));
+    TMR2_Counter16BitSet(value));
 
     while(1)
     {
-        TMR1_Tasks();
-        if( (value == TMR1_Counter16BitGet()))
+        TMR2_Tasks();
+        if( (value == TMR2_Counter16BitGet()))
         {
-            TMR1_Stop();
+            TMR2_Stop();
         }
     }
     </code>
 */
 
-void TMR1_Counter16BitSet ( uint16_t value );
+void TMR2_Counter16BitSet ( uint16_t value );
 
 /**
   @Summary
@@ -214,11 +195,28 @@ void TMR1_Counter16BitSet ( uint16_t value );
     16-bit current counter value
  
   @Example 
-    Refer to the example of TMR1_Counter16BitSet();
+    Refer to the example of TMR2_Counter16BitSet();
 */
 
-uint16_t TMR1_Counter16BitGet( void );
+uint16_t TMR2_Counter16BitGet( void );
 
+/**
+  @Summary
+    Callback for timer interrupt.
+
+  @Description
+    This routine is callback for timer interrupt
+
+  @Param
+    None.
+
+  @Returns
+    None
+ 
+  @Example 
+    Refer to the example of TMR2_Initialize();
+*/
+void TMR2_CallBack(void);
 
 /**
   @Summary
@@ -234,10 +232,10 @@ uint16_t TMR1_Counter16BitGet( void );
     None
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-void TMR1_Start( void );
+void TMR2_Start( void );
 
 /**
   @Summary
@@ -253,10 +251,10 @@ void TMR1_Start( void );
     None
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-void TMR1_Stop( void );
+void TMR2_Stop( void );
 
 /**
   @Summary
@@ -274,10 +272,10 @@ void TMR1_Stop( void );
     False - Timer has not elapsed.
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-bool TMR1_GetElapsedThenClear(void);
+bool TMR2_GetElapsedThenClear(void);
 
 /**
   @Summary
@@ -293,10 +291,10 @@ bool TMR1_GetElapsedThenClear(void);
     Software counter value.
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-int TMR1_SoftwareCounterGet(void);
+int TMR2_SoftwareCounterGet(void);
 
 /**
   @Summary
@@ -312,10 +310,10 @@ int TMR1_SoftwareCounterGet(void);
     None
  
   @Example 
-    Refer to the example of TMR1_Initialize();
+    Refer to the example of TMR2_Initialize();
 */
 
-void TMR1_SoftwareCounterClear(void);
+void TMR2_SoftwareCounterClear(void);
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
@@ -323,7 +321,7 @@ void TMR1_SoftwareCounterClear(void);
 
 #endif
 
-#endif //_TMR1_H
+#endif //_TMR2_H
     
 /**
  End of File

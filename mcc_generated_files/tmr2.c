@@ -1,18 +1,18 @@
 
 /**
-  TMR1 Generated Driver API Source File 
+  TMR2 Generated Driver API Source File 
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    tmr1.c
+    tmr2.c
 
   @Summary
-    This is the generated source file for the TMR1 driver using PIC24 / dsPIC33 / PIC32MM MCUs
+    This is the generated source file for the TMR2 driver using PIC24 / dsPIC33 / PIC32MM MCUs
 
   @Description
-    This source file provides APIs for driver for TMR1. 
+    This source file provides APIs for driver for TMR2. 
     Generation Information : 
         Product Revision  :  PIC24 / dsPIC33 / PIC32MM MCUs - pic24-dspic-pic32mm : v1.35
         Device            :  dsPIC33EV256GM102
@@ -48,7 +48,7 @@
 */
 
 #include <xc.h>
-#include "tmr1.h"
+#include "tmr2.h"
 
 /**
   Section: Data Type Definitions
@@ -76,109 +76,124 @@ typedef struct _TMR_OBJ_STRUCT
 
 } TMR_OBJ;
 
-static TMR_OBJ tmr1_obj;
+static TMR_OBJ tmr2_obj;
 
 /**
   Section: Driver Interface
 */
 
 
-void TMR1_Initialize (void)
+void TMR2_Initialize (void)
 {
-    //TMR1 0; 
-    TMR1 = 0x0;
-    //Period = 0 s; Frequency = 30401250 Hz; PR1 0; 
-    PR1 = 0x0;
-    //TCKPS 1:1; TON enabled; TSIDL disabled; TCS FOSC/2; TSYNC disabled; TGATE enabled; 
-    T1CON = 0x8040;
+    //TMR2 0; 
+    TMR2 = 0x0;
+    //Period = 0.0000049998 s; Frequency = 30401250 Hz; PR2 19; 
+    PR2 = 0x13;
+    //TCKPS 1:8; T32 16 Bit; TON enabled; TSIDL disabled; TCS FOSC/2; TGATE disabled; 
+    T2CON = 0x8010;
 
     
+    IFS0bits.T2IF = false;
+    IEC0bits.T2IE = true;
 	
-    tmr1_obj.timerElapsed = false;
+    tmr2_obj.timerElapsed = false;
 
 }
 
 
 
-void TMR1_Tasks_16BitOperation( void )
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _T2Interrupt (  )
 {
     /* Check if the Timer Interrupt/Status is set */
-    if(IFS0bits.T1IF)
-    {
-        tmr1_obj.count++;
-        tmr1_obj.timerElapsed = true;
-        IFS0bits.T1IF = false;
-    }
+
+    //***User Area Begin
+
+    // ticker function call;
+    // ticker is 1 -> Callback function gets called everytime this ISR executes
+    TMR2_CallBack();
+
+    //***User Area End
+
+    tmr2_obj.count++;
+    tmr2_obj.timerElapsed = true;
+    IFS0bits.T2IF = false;
 }
 
 
-
-void TMR1_Period16BitSet( uint16_t value )
+void TMR2_Period16BitSet( uint16_t value )
 {
     /* Update the counter values */
-    PR1 = value;
+    PR2 = value;
     /* Reset the status information */
-    tmr1_obj.timerElapsed = false;
+    tmr2_obj.timerElapsed = false;
 }
 
-uint16_t TMR1_Period16BitGet( void )
+uint16_t TMR2_Period16BitGet( void )
 {
-    return( PR1 );
+    return( PR2 );
 }
 
-void TMR1_Counter16BitSet ( uint16_t value )
+void TMR2_Counter16BitSet ( uint16_t value )
 {
     /* Update the counter values */
-    TMR1 = value;
+    TMR2 = value;
     /* Reset the status information */
-    tmr1_obj.timerElapsed = false;
+    tmr2_obj.timerElapsed = false;
 }
 
-uint16_t TMR1_Counter16BitGet( void )
+uint16_t TMR2_Counter16BitGet( void )
 {
-    return( TMR1 );
+    return( TMR2 );
 }
 
 
+void __attribute__ ((weak)) TMR2_CallBack(void)
+{
+    // Add your custom callback code here
+}
 
-void TMR1_Start( void )
+void TMR2_Start( void )
 {
     /* Reset the status information */
-    tmr1_obj.timerElapsed = false;
+    tmr2_obj.timerElapsed = false;
 
+    /*Enable the interrupt*/
+    IEC0bits.T2IE = true;
 
     /* Start the Timer */
-    T1CONbits.TON = 1;
+    T2CONbits.TON = 1;
 }
 
-void TMR1_Stop( void )
+void TMR2_Stop( void )
 {
     /* Stop the Timer */
-    T1CONbits.TON = false;
+    T2CONbits.TON = false;
 
+    /*Disable the interrupt*/
+    IEC0bits.T2IE = false;
 }
 
-bool TMR1_GetElapsedThenClear(void)
+bool TMR2_GetElapsedThenClear(void)
 {
     bool status;
     
-    status = tmr1_obj.timerElapsed;
+    status = tmr2_obj.timerElapsed;
 
     if(status == true)
     {
-        tmr1_obj.timerElapsed = false;
+        tmr2_obj.timerElapsed = false;
     }
     return status;
 }
 
-int TMR1_SoftwareCounterGet(void)
+int TMR2_SoftwareCounterGet(void)
 {
-    return tmr1_obj.count;
+    return tmr2_obj.count;
 }
 
-void TMR1_SoftwareCounterClear(void)
+void TMR2_SoftwareCounterClear(void)
 {
-    tmr1_obj.count = 0; 
+    tmr2_obj.count = 0; 
 }
 
 /**
