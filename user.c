@@ -5,11 +5,14 @@
  * Created on July 6, 2017, 1:14 PM
  */
 
-
+// Environment includes
 #include "xc.h"
 
+// Project includes
 #include "user.h"
 #include "mcc_generated_files/tmr2.h"
+#include "mcc_generated_files/spi1.h"
+#include "mcc_generated_files/spi2.h"
 
 // The calibration coefficients in RAM
 unsigned int gCoefficients[8][4] = { };
@@ -35,8 +38,13 @@ uint16_t gIncomingValues[8];
 // The "outgoing" or processed values for the D/A
 uint16_t gOutgoingValues[8];
 
+// The 32bit configuration to turn on the internal reference for AD5668
+AD5668Config gAD5668EnableIntRef = {
+    { .command.COMMAND_BITS = { 1, 0, 0, 0 }, .DB0 = 1 }
+};
+
 // Kick-start the A/D
-void initializeAD()
+void initializeADC()
 {
     // Send command to LTC to begin sampling CH0
     uint16_t receiveBuffer; // the dummy receive buffer
@@ -50,18 +58,21 @@ void initializeAD()
 }
 
 // Process A/D jobs
-void processADPolling()
+void processADCPolling()
 {
     // Is the last conversion done?
     if (TMR2_GetElapsedThenClear())
     {
+        // Stop the timer
+        TMR2_Stop();
+        
         // round-robin for the A/D channels
         unsigned int nextChannel = (gLastADChannel + 1) % 8;
         
         // Send / Receive on the A/D SPI
         SPI1_Exchange16bitBuffer(&gLTC1867Commands[nextChannel].word, 2, &gIncomingValues[gLastADChannel]);
 
-        // Start timer 2 to indicate when the A/D has finished the conversion
+        // Start timer 2 to indicate when the A/D will have finished the conversion
         TMR2_Start();
         
         // Call up the transformation function
@@ -135,9 +146,16 @@ void processChannel(int channel)
     // Save the processed value 
     gOutgoingValues[channel] = result;
 }
-                
+  
+// Setup the internal reference for the AD5668 DAC
+void initializeDAC()
+{
+    uint16_t receiveBuffer[2]; // the dummy receive buffer
+    SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, receiveBuffer);
+}
+
 // Process D/A jobs
-void processDAUpdates()
+void processDACUpdates()
 {
     
 }

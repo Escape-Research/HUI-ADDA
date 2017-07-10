@@ -79,7 +79,10 @@ int main(void)
                 readFromFlash((unsigned int *)gCoefficients, 32);
                 
                 // Kick start the A/D
-                initializeAD();
+                initializeADC();
+                
+                // Initialize the D/A internal reference
+                initializeDAC();
                 
                 // switch to normal mode
                 gCurrentState = normal;
@@ -91,10 +94,10 @@ int main(void)
                 // We are implementing a form of "non preemptive" multi-tasking
                 
                 // Process A/D and transformation jobs
-                processADPolling();
+                processADCPolling();
                 
                 // Process D/A jobs
-                processDAUpdates();
+                processDACUpdates();
                 
                 break;
                 

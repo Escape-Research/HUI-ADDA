@@ -11,8 +11,6 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
 
-#include "mcc_generated_files/spi1.h"
-
 // Global declarations
 
 // Some useful constants
@@ -32,6 +30,7 @@ typedef enum tagRUN_STATE {
 } RUN_STATE;
 extern RUN_STATE gCurrentState;
 
+// Configuration 16bit word for the LTC1867 ADC
 typedef union tagLTC1867Config {
     struct {
         unsigned SD :1;
@@ -49,17 +48,77 @@ typedef union tagLTC1867Config {
 } LTC1867Config;
 extern LTC1867Config gLTC1867Commands[8];
 
+// Configuration 32bit sequence for the AD5668 DAC
+typedef union tagAD5668Config {
+    struct {
+        unsigned :4;
+        union {
+            struct {
+                unsigned C3 :1;
+                unsigned C2 :1;
+                unsigned C1 :1;
+                unsigned C0 :1;
+            } COMMAND_BITS;
+            struct {
+                unsigned command_value :4;
+            };
+        } command;
+        union ADDRESS {
+            struct {
+                unsigned A3 :1;
+                unsigned A2 :1;
+                unsigned A1 :1;
+                unsigned A0 :1;                
+            } ADDRESS_BITS;
+            struct {
+                unsigned address_value :4;
+            };
+        } address;
+        union {
+            struct {
+                unsigned D15 :1;
+                unsigned D14 :1;
+                unsigned D13 :1;
+                unsigned D12 :1;
+                unsigned D11 :1;
+                unsigned D10 :1;
+                unsigned D9 :1;
+                unsigned D8 :1;
+                unsigned D7 :1;
+                unsigned D6 :1;
+                unsigned D5 :1;
+                unsigned D4 :1;
+                unsigned D3 :1;
+                unsigned D2 :1;
+                unsigned D1 :1;
+                unsigned D0 :1;
+            } DATA_BITS;
+            struct {
+                uint16_t data;
+            };
+        };
+        unsigned :3;
+        unsigned DB0 :1;
+    };
+    struct {
+        uint16_t words[2];
+    };
+} AD5668Config;
+
 // Kick-start the A/D
-void initializeAD();
+void initializeADC();
 
 // Process A/D jobs
-void processADPolling();
+void processADCPolling();
                 
 // Process transformations
 void processChannel(int channel);
-                
+               
+// Initialize the DAC internal reference
+void initializeDAC();
+
 // Process D/A jobs
-void processDAUpdates();
+void processDACUpdates();
 
 
 #ifdef	__cplusplus
