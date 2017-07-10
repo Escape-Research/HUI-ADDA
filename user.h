@@ -9,7 +9,9 @@
 #define	USER_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
+#include <stdint.h>
 
+#include "mcc_generated_files/spi1.h"
 
 // Global declarations
 
@@ -37,16 +39,19 @@ typedef union tagLTC1867Config {
         unsigned :9;
     } BITS;
     struct {
-        unsigned word :16;
+        uint16_t word;
     };
 } LTC1867Config;
 extern LTC1867Config gLTC1867Commands[8];
+
+// Kick-start the A/D
+void initializeAD();
 
 // Process A/D jobs
 void processADPolling();
                 
 // Process transformations
-void processTXJobs();
+void processChannel(int channel);
                 
 // Process D/A jobs
 void processDAUpdates();

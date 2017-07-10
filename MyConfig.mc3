@@ -1,12 +1,12 @@
 <config configVersion="1.1" device="dsPIC33EV256GM102" coreVersion="4.26">
    <usedClasses class="java.util.HashMap">
       <entry>
-         <string>SPI2</string>
-         <string>class com.microchip.mcc.mcu16.modules.spi.SPI</string>
-      </entry>
-      <entry>
          <string>System Module</string>
          <string>class com.microchip.mcc.mcu16.systemManager.DefaultSystemManagerMcu16</string>
+      </entry>
+      <entry>
+         <string>SPI2</string>
+         <string>class com.microchip.mcc.mcu16.modules.spi.SPI</string>
       </entry>
       <entry>
          <string>SPI1</string>
@@ -29,12 +29,12 @@
          <string>class com.microchip.mcc.mcu16.systemManager.dmt.DMT</string>
       </entry>
       <entry>
-         <string>ICD</string>
-         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
-      </entry>
-      <entry>
          <string>RESET</string>
          <string>class com.microchip.mcc.mcu16.systemManager.reset.RESET</string>
+      </entry>
+      <entry>
+         <string>ICD</string>
+         <string>class com.microchip.mcc.mcu16.systemManager.icd.Icd</string>
       </entry>
       <entry>
          <string>Interrupt Module</string>
@@ -1058,12 +1058,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="FRMDLY" alias="disabled"/>
-         <value>0</value>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TI" settingAlias="enable"/>
+         <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TI" settingAlias="enable"/>
-         <value>enabled</value>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="FRMDLY" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="LATB" settingAlias="LATB6" alias="set"/>
@@ -1122,16 +1122,16 @@
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_ENHBUF_EMPTY"/>
-         <value>6</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI2" registerAlias="SPISTAT" settingAlias="SPIBEC" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TI" settingAlias="context"/>
          <value>OFF</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPISTAT" settingAlias="SISEL" alias="SPI_INT_ENHBUF_EMPTY"/>
+         <value>6</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="Pin Module" registerAlias="RPINR12"/>
@@ -2191,7 +2191,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="PPRE"/>
-         <value>64:1</value>
+         <value>16:1</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPICON1" settingAlias="PPRE"/>
@@ -3410,11 +3410,11 @@
          <value>ISR_SPI2_SPII</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="SPIFSD" alias="enabled"/>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TNI" settingAlias="priority"/>
          <value>1</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TNI" settingAlias="priority"/>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="SPIFSD" alias="enabled"/>
          <value>1</value>
       </entry>
       <entry>
@@ -3647,7 +3647,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="SPI1" registerAlias="SPICON1"/>
-         <value>1056</value>
+         <value>1057</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="CNPDB" settingAlias="CNPDB9"/>
@@ -4342,12 +4342,12 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="MODE16"/>
-         <value>enabled</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPFI" settingAlias="flag"/>
          <value>disabled</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON1" settingAlias="MODE16"/>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="REFOCON" settingAlias="ROSEL" alias="disabled"/>
@@ -4967,7 +4967,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="SPI1" name="ClockFrequency"/>
-         <value>59377.44140625000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</value>
+         <value>237509.76562500000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPII" settingAlias="flag"/>
@@ -5348,24 +5348,24 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>160280c72cb4c3e3d784a11f38e3bbdb3b7cf82fe230d0db1c1fe05a9730578f</hash>
-      </entry>
-      <entry>
          <file>mcc_generated_files\interrupt_manager.h</file>
          <hash>6bb99bb68d4dfa839e5f98030d710bd88b2156d0eb7dcd8b512aa5da5b988979</hash>
       </entry>
       <entry>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>e6d1097a6227e4a137aa8321b468a8623e1d1bf6d1f6e1c54554d3037fdcee11</hash>
+      </entry>
+      <entry>
          <file>mcc_generated_files\tmr2.h</file>
-         <hash>b037e238071d740282a6f66a68b05582b0f655fb8d481fbecca23d0477adbe98</hash>
+         <hash>729192d858445b04252fde373d15655268797428e9919ae9e7b79fe271b790c3</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files\tmr2.c</file>
+         <hash>1246772c478a31340a2f1eff94264a8d490deccbb08c1749ca54ab0e56d42b72</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\spi1.h</file>
          <hash>0b18bded9d2437a26a0f9ef81639e0682111d7c5e90f3f9f4ee1abee58d9e35d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files\tmr2.c</file>
-         <hash>024e937e99a6c25cc9a0ad3f0aeb544cb575dbebd71be6b163a76e8843e9887b</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.h</file>
@@ -5381,7 +5381,7 @@
       </entry>
       <entry>
          <file>mcc_generated_files\spi1.c</file>
-         <hash>393168b9c1c1601b28a763e5db0dcc23c792f220efc3aabc4bdc9178beb72872</hash>
+         <hash>ca0f52a84aaa725c8e9b1e78136ce330cd9396b21c19a604bf240bbab369cb38</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
@@ -5396,12 +5396,12 @@
          <hash>52665136af1853cf669576319d2cf2286efcf0f6c017d6afe16c698ced02f0dc</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>e26fda2d350611b46e561f2ae2c589800f1b30000e1510e4518ea18ab8265dfb</hash>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>7a4a92a0ebc03b5711320db6751240c5bb59c19efce2e04b4c12ed2b7d724af9</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>6cc45f34c2e4977d01b49d4449b0ad1bb1b69e7dc1d5028f07c299ff10c2d991</hash>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>80682fb232ddddaca18329afdb3626263ba6b01b5ec67bd5bd64fc405c94969f</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>

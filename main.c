@@ -77,17 +77,21 @@ int main(void)
                 
                 // Load coefficients from flash
                 readFromFlash((unsigned int *)gCoefficients, 32);
+                
+                // Kick start the A/D
+                initializeAD();
+                
+                // switch to normal mode
+                gCurrentState = normal;
+                
                 break;
                 
             case normal:
                 
                 // We are implementing a form of "non preemptive" multi-tasking
                 
-                // Process A/D jobs
+                // Process A/D and transformation jobs
                 processADPolling();
-                
-                // Process transformations
-                processTXJobs();
                 
                 // Process D/A jobs
                 processDAUpdates();
