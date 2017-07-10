@@ -15,6 +15,11 @@
 
 // Global declarations
 
+// Some useful constants
+#define _16BIT_1Q   0x3FFF
+#define _16BIT_HALF 0x7FFF
+#define _16BIT_3Q   0xBFFF
+#define _16BIT_FS   0xFFFF
 
 // The calibration coefficients in RAM
 extern unsigned int gCoefficients[8][4];

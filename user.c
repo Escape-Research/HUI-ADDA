@@ -75,64 +75,60 @@ void processADPolling()
 // Process transformations
 void processChannel(int channel)
 {
+    // The incoming unprocessed value
+    uint16_t input = gIncomingValues[channel];
     
-}
-
-/*
-// Return the "calibrated" 10bit value for a fader
-uint16_t map_location(int fader, uint16_t fpos)
-{
     double factor;
     uint16_t result = 0;
     
     // Figure out which region we're in
-    if (fpos == 0)
+    if (input == 0)
     {
-        return 0;
+        gOutgoingValues[channel] = 0;
+        return;
     }
-    if (fpos < map_cal[fader][1])
+    if (input < gCoefficients[channel][1])
     {
-        factor = fpos * (double)(_12BIT_1Q);
-        factor /= (double)(map_cal[fader][1]);
+        factor = input * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][1]);
         result = factor;
     }
-    else if (fpos == map_cal[fader][1])
+    else if (input == gCoefficients[channel][1])
     {
-        return _10BIT_1Q;
+        return _16BIT_1Q;
     }
-    else if (fpos < map_cal[fader][0])
+    else if (input < gCoefficients[channel][0])
     {
-        factor = ( fpos - map_cal[fader][1] ) * (double)(_12BIT_1Q);
-        factor /= (double)(map_cal[fader][0] - map_cal[fader][1]);
-        result = factor + _12BIT_1Q;
+        factor = ( input - gCoefficients[channel][1] ) * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][0] - gCoefficients[channel][1]);
+        result = factor + _16BIT_1Q;
     }
-    else if (fpos == map_cal[fader][0])
+    else if (input == gCoefficients[channel][0])
     {
-        return _10BIT_HALF;
+        return _16BIT_HALF;
     }
-    else if (fpos < map_cal[fader][2])
+    else if (input < gCoefficients[channel][2])
     {
-        factor = ( fpos - map_cal[fader][0] ) * (double)(_12BIT_1Q);
-        factor /= (double)(map_cal[fader][2] - map_cal[fader][0]);        
-        result = factor + _12BIT_HALF;
+        factor = ( input - gCoefficients[channel][0] ) * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][2] - gCoefficients[channel][0]);        
+        result = factor + _16BIT_HALF;
     }
-    else if (fpos == map_cal[fader][2])
+    else if (input == gCoefficients[channel][2])
     {
-        return _10BIT_3Q;
+        return _16BIT_3Q;
     }
-    else if (fpos < map_cal[fader][3])
+    else if (input < gCoefficients[channel][3])
     {
-        factor = ( fpos - map_cal[fader][2] ) * (double)(_12BIT_1Q);
-        factor /= (double)(map_cal[fader][3] - map_cal[fader][2]);        
-        result = factor + _12BIT_3Q;
+        factor = ( input - gCoefficients[channel][2] ) * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][3] - gCoefficients[channel][2]);        
+        result = factor + _16BIT_3Q;
     }
     else
-        return _10BIT_FS;
-    
-    result = scale_from_12_to_10bits(result);
-    return result;
+        return _16BIT_FS;
+
+    // Save the processed value 
+    gOutgoingValues[channel] = result;
 }
-*/
                 
 // Process D/A jobs
 void processDAUpdates()
