@@ -95,7 +95,8 @@ void processChannel(int channel)
     }
     else if (input == gCoefficients[channel][1])
     {
-        return _16BIT_1Q;
+        gOutgoingValues[channel] = _16BIT_1Q;
+        return;
     }
     else if (input < gCoefficients[channel][0])
     {
@@ -104,8 +105,9 @@ void processChannel(int channel)
         result = factor + _16BIT_1Q;
     }
     else if (input == gCoefficients[channel][0])
-    {
-        return _16BIT_HALF;
+    {        
+        gOutgoingValues[channel] = _16BIT_HALF;
+        return;
     }
     else if (input < gCoefficients[channel][2])
     {
@@ -115,7 +117,8 @@ void processChannel(int channel)
     }
     else if (input == gCoefficients[channel][2])
     {
-        return _16BIT_3Q;
+        gOutgoingValues[channel] = _16BIT_3Q;
+        return;
     }
     else if (input < gCoefficients[channel][3])
     {
@@ -124,7 +127,10 @@ void processChannel(int channel)
         result = factor + _16BIT_3Q;
     }
     else
-        return _16BIT_FS;
+    {
+        gOutgoingValues[channel] = _16BIT_FS;
+        return;
+    }
 
     // Save the processed value 
     gOutgoingValues[channel] = result;
