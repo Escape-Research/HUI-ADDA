@@ -11,7 +11,16 @@
 #include "flash.h"
 
 // Allocation on user flash prog 
-const int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashStorage[_FLASH_PAGE * 2] = { };
+const unsigned int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashStorage[_FLASH_PAGE * 2] = { 
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS,
+    _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS
+};
 
 void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {

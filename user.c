@@ -15,7 +15,16 @@
 #include "mcc_generated_files/spi2.h"
 
 // The calibration coefficients in RAM
-unsigned int gCoefficients[8][4] = { };
+unsigned int gCoefficients[8][4] = { 
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS },
+    { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS }
+};
 
 // The LTC1867 sequential commands
 LTC1867Config gLTC1867Commands[8] = {
@@ -33,15 +42,19 @@ LTC1867Config gLTC1867Commands[8] = {
 unsigned int gLastADChannel;
 
 // The "incoming" A/D values
-uint16_t gIncomingValues[8];
+uint16_t gIncomingValues[8] = { };
 
 // The "outgoing" or processed values for the D/A
-uint16_t gOutgoingValues[8];
+uint16_t gOutgoingValues[8] = { };
 
 // The 32bit configuration to turn on the internal reference for AD5668
 AD5668Config gAD5668EnableIntRef = {
     { .command.COMMAND_BITS = { 1, 0, 0, 0 }, .DB0 = 1 }
 };
+
+// The last D/A channel send to the DAC
+unsigned int gLastDACChannel;
+
 
 // Kick-start the A/D
 void initializeADC()
@@ -92,51 +105,69 @@ void processChannel(int channel)
     double factor;
     uint16_t result = 0;
     
-    // Figure out which region we're in
+    // Figure out which region we're in, calculate and correct as needed
+    
+    // Lower boundary
     if (input == 0)
     {
         gOutgoingValues[channel] = 0;
         return;
     }
-    if (input < gCoefficients[channel][1])
+    
+    // Between lower boundary and 1st quarter
+    if (input < gCoefficients[channel][0])
     {
         factor = input * (double)(_16BIT_1Q);
-        factor /= (double)(gCoefficients[channel][1]);
+        factor /= (double)(gCoefficients[channel][0]);
         result = factor;
     }
-    else if (input == gCoefficients[channel][1])
+    
+    // Exactly at 1st quarter
+    else if (input == gCoefficients[channel][0])
     {
         gOutgoingValues[channel] = _16BIT_1Q;
         return;
     }
-    else if (input < gCoefficients[channel][0])
+    
+    // Between 1st quarter and halfway through
+    else if (input < gCoefficients[channel][1])
     {
-        factor = ( input - gCoefficients[channel][1] ) * (double)(_16BIT_1Q);
-        factor /= (double)(gCoefficients[channel][0] - gCoefficients[channel][1]);
+        factor = ( input - gCoefficients[channel][0] ) * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][1] - gCoefficients[channel][0]);
         result = factor + _16BIT_1Q;
     }
-    else if (input == gCoefficients[channel][0])
+    
+    // Exactly halfway through
+    else if (input == gCoefficients[channel][1])
     {        
         gOutgoingValues[channel] = _16BIT_HALF;
         return;
     }
+    
+    // Between halfway through and 3rd quarter
     else if (input < gCoefficients[channel][2])
     {
-        factor = ( input - gCoefficients[channel][0] ) * (double)(_16BIT_1Q);
-        factor /= (double)(gCoefficients[channel][2] - gCoefficients[channel][0]);        
+        factor = ( input - gCoefficients[channel][1] ) * (double)(_16BIT_1Q);
+        factor /= (double)(gCoefficients[channel][2] - gCoefficients[channel][1]);        
         result = factor + _16BIT_HALF;
     }
+    
+    // Exactly at 3rd quarter
     else if (input == gCoefficients[channel][2])
     {
         gOutgoingValues[channel] = _16BIT_3Q;
         return;
     }
+    
+    // Between 3rd quarter and full scale
     else if (input < gCoefficients[channel][3])
     {
         factor = ( input - gCoefficients[channel][2] ) * (double)(_16BIT_1Q);
         factor /= (double)(gCoefficients[channel][3] - gCoefficients[channel][2]);        
         result = factor + _16BIT_3Q;
     }
+    
+    // Exactly at full scale
     else
     {
         gOutgoingValues[channel] = _16BIT_FS;
@@ -150,13 +181,33 @@ void processChannel(int channel)
 // Setup the internal reference for the AD5668 DAC
 void initializeDAC()
 {
-    uint16_t receiveBuffer[2]; // the dummy receive buffer
+    uint16_t receiveBuffer[2]; // dummy receive buffer
     SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, receiveBuffer);
+    
+    // Setup last channel indicator to the last channel (so it will roll to first)
+    gLastDACChannel = 7;
 }
 
 // Process D/A jobs
 void processDACUpdates()
 {
+    // Round-robin the output channel
+    unsigned int channel = (gLastDACChannel + 1) % 8;
+ 
+    // Setup the configuration 32 bit structure
+    AD5668Config DACConfig = { };
     
+    // Setup the command and DAC channel
+    DACConfig.command.command_value = 0x3;  // Write to and update DAC channel n
+    DACConfig.address.address_value = channel;
+    
+    // Setup the output value
+    DACConfig.data = gOutgoingValues[channel];
+    
+    // Initiate the SPI communication to the DAC
+    uint16_t receiveBuffer[2]; // dummy receive buffer
+    SPI2_Exchange16bitBuffer(DACConfig.words, 4, receiveBuffer);
+    
+    // Update the last channel indicator
+    gLastDACChannel = channel;
 }
-

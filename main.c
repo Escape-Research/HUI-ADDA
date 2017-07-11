@@ -75,14 +75,14 @@ int main(void)
         {
             case init:
                 
-                // Load coefficients from flash
-                readFromFlash((unsigned int *)gCoefficients, 32);
-                
                 // Kick start the A/D
                 initializeADC();
                 
                 // Initialize the D/A internal reference
                 initializeDAC();
+                
+                // Load coefficients from flash
+                readFromFlash((unsigned int *)gCoefficients, 32);
                 
                 // switch to normal mode
                 gCurrentState = normal;
