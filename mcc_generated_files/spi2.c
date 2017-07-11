@@ -74,10 +74,10 @@ void SPI2_Initialize (void)
     SPI2STAT = 0x800C;
     
     // Overrides
-    SPI1CON2bits.FRMEN = 1;     // Enable framed communications
-    SPI1CON2bits.SPIFSD = 0;    // frame sync pulse output (master)
-    SPI1CON2bits.FRMPOL = 0;    // frame sync. pulse active low
-    SPI1CON2bits.FRMDLY = 0;    // frame sync. pulse precedes the first bit clock
+    SPI2CON2bits.FRMEN = 1;     // Enable framed communications
+    SPI2CON2bits.SPIFSD = 0;    // frame sync pulse output (master)
+    SPI2CON2bits.FRMPOL = 0;    // frame sync. pulse active low
+    SPI2CON2bits.FRMDLY = 0;    // frame sync. pulse precedes the first bit clock
 }
 
 void SPI2_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
