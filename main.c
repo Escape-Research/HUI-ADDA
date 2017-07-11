@@ -109,7 +109,6 @@ int main(void)
                 // Save coefficients in flash
                 eraseFlashStorage();
                 writeToFlash((unsigned int *)gCoefficients, 32);
-                break;
         }
     }
     

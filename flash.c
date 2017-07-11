@@ -32,7 +32,7 @@ void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
     offset = __builtin_tbloffset(gFlashStorage);
     offset &= 0xFBFF; // set to base of page (original: F800)
     
-    for (i = 0; i < nBufferSize; i += 2)
+    for (i = 0; i < nBufferSize * 2; i += 2)
     {
         // Load the 32 bit value from flash into the intermediate buffer
         bufLo = __builtin_tblrdl(offset);
@@ -51,48 +51,49 @@ void eraseFlashStorage()
     
     NVMADRU = __builtin_tblpage(gFlashStorage);
     offset = __builtin_tbloffset(gFlashStorage);
-    NVMADR = (offset & 0xFBFF); // for page size of 1024 PM Words (original F800)
+    NVMADR = (offset & 0xFBFF); // for page size of 512 PM Words (original F800)
     
     // set WREN and page erase in NVMCON
     NVMCON = 0x4003;
     
     __builtin_disi(6);      // disable interrupts
     __builtin_write_NVM();  // initiate write process
+    
+    // wait until the operation is complete
+    while (NVMCONbits.WR == 1)
+        ;
 }
 
 void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {
     int offset, i;
-    TBLPAG = 0xFA;  // base address of write latches
     
-    // Prepare the buffer
-    unsigned int intBuffer[_FLASH_ROW * 2];
+    // Initialize and prepare the buffer
+    unsigned int intBuffer[_FLASH_ROW * 2] = { };
     int j = 0;
     for (i = 0; i < nBufferSize * 2; i++)
     {
-        intBuffer[i++] = pRAMBuffer[j] & 0xFF;
-        intBuffer[i] = pRAMBuffer[j++] >> 8;
+        intBuffer[i++] = pRAMBuffer[j++];
+        intBuffer[i] = 0x00;
     }
-    
-    // Load row of data into write latches
-    offset = 0;
-    for (i = 0; i < nBufferSize * 2; i++)
-    {
-        __builtin_tblwtl(offset, intBuffer[i++]);
-        __builtin_tblwth(offset, intBuffer[i]);
-        offset += 2;
-    }
-
+    // Setup the source location for the copy
+    NVMSRCADRL = (int)&intBuffer[0]; // Start address of data in RAM
+        
     // Set the destination address into the NVM address registers
     NVMADRU = __builtin_tblpage(gFlashStorage);
     offset = __builtin_tbloffset(gFlashStorage);
-    NVMADR = (offset & 0xFBFF); // for page size of 1024 PM words (original F800)
-
+    NVMADR = (offset & 0xFBFF); // for page size of 512 PM words (original F800)
+    
     // Set WREN and enable row write in NVMCON
     NVMCON = 0x4002;
+    NVMCONbits.RPDF = 0; // Select uncompressed format
 
     __builtin_disi(6);      // disable interrupts
     __builtin_write_NVM();  // initiate write process
+    
+    // wait until the operation is complete
+    while (NVMCONbits.WR == 1)
+        ;
 }
 
 
