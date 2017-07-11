@@ -72,6 +72,12 @@ void SPI1_Initialize (void)
     SPI1CON2 = 0x1;
     // SISEL SPI_INT_SPIRBF; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
     SPI1STAT = 0x800C;
+    
+    // Overrides
+    SPI1CON2bits.FRMEN = 1;     // Enable framed communications
+    SPI1CON2bits.SPIFSD = 0;    // frame sync pulse output (master)
+    SPI1CON2bits.FRMPOL = 0;    // frame sync. pulse active low
+    SPI1CON2bits.FRMDLY = 0;    // frame sync. pulse precedes the first bit clock
 }
 
 void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
