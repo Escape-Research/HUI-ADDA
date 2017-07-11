@@ -66,7 +66,7 @@ void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
     TBLPAG = 0xFA;  // base address of write latches
     
     // Prepare the buffer
-    int intBuffer[_FLASH_ROW * 2];
+    unsigned int intBuffer[_FLASH_ROW * 2];
     int j = 0;
     for (i = 0; i < nBufferSize * 2; i++)
     {

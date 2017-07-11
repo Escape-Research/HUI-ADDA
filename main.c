@@ -49,7 +49,7 @@
 #include "flash.h"
 
 // Declaration of global variables
-RUN_STATE gCurrentState = init; 
+RUN_STATE gCurrentState = calibration; 
 
 /*
                          Main application
