@@ -2,3 +2,4 @@
 /dist/
 /debug/
 **/*.*~
+/nbproject/private/private.xml
