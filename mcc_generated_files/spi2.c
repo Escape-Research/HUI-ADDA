@@ -68,16 +68,10 @@ void SPI2_Initialize (void)
 {
     // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
     SPI2CON1 = 0x420;
-    // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN disabled; 
-    SPI2CON2 = 0x1;
+    // SPIFSD disabled; SPIBEN disabled; FRMPOL disabled; FRMDLY disabled; FRMEN enabled; 
+    SPI2CON2 = 0x8000;
     // SISEL SPI_INT_SPIRBF; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
     SPI2STAT = 0x800C;
-    
-    // Overrides
-    SPI2CON2bits.FRMEN = 1;     // Enable framed communications
-    SPI2CON2bits.SPIFSD = 0;    // frame sync pulse output (master)
-    SPI2CON2bits.FRMPOL = 0;    // frame sync. pulse active low
-    SPI2CON2bits.FRMDLY = 0;    // frame sync. pulse precedes the first bit clock
 }
 
 void SPI2_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
