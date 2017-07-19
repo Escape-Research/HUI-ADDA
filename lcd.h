@@ -10,35 +10,26 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-// TODO Insert appropriate #include <>
+// Declare the LCD buffer
+extern char gLCDBuffer[2][8];
 
-// TODO Insert C++ class definitions if appropriate
+typedef union tagBitByte {
+    struct {
+        unsigned B0 :1;
+        unsigned B1 :1;
+        unsigned B2 :1;
+        unsigned B3 :1;
+        unsigned B4 :1;
+        unsigned B5 :1;
+        unsigned B6 :1;    
+        unsigned B7 :1;
+    } BITS;
+    struct {
+        uint8_t byte;
+    };
+} BitByte;
 
-// TODO Insert declarations
-
-// Comment a function and leverage automatic documentation with slash star star
-/**
-    <p><b>Function prototype:</b></p>
-  
-    <p><b>Summary:</b></p>
-
-    <p><b>Description:</b></p>
-
-    <p><b>Precondition:</b></p>
-
-    <p><b>Parameters:</b></p>
-
-    <p><b>Returns:</b></p>
-
-    <p><b>Example:</b></p>
-    <code>
- 
-    </code>
-
-    <p><b>Remarks:</b></p>
- */
-// TODO Insert declarations or function prototypes (right here) to leverage 
-// live documentation
+void initializeLCD();
 
 #ifdef	__cplusplus
 extern "C" {

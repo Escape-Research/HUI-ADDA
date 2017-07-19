@@ -11,6 +11,11 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include <stdint.h>
 
+// Declare the __delay functions
+#include "mcc_generated_files/mcc.h"
+#define FCY (_XTAL_FREQ/2)
+#include "libpic30.h"
+
 // Global declarations
 
 // Some useful constants

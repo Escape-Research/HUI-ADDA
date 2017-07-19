@@ -47,6 +47,7 @@
 // Include the common definitions for this project
 #include "user.h"
 #include "flash.h"
+#include "lcd.h"
 
 // Declaration of global variables
 RUN_STATE gCurrentState = init; 
@@ -74,6 +75,9 @@ int main(void)
         switch (gCurrentState)
         {
             case init:
+                
+                // Initialize the LCD
+                initializeLCD();
                 
                 // Kick start the A/D
                 initializeADC();
