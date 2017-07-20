@@ -88,6 +88,9 @@ int main(void)
                 // Load coefficients from flash
                 readFromFlash((unsigned int *)gCoefficients, 32);
                 
+                // Update the LCD
+                writeLCDString(0, 0, "********12345678");
+                
                 // switch to normal mode
                 gCurrentState = normal;
                 

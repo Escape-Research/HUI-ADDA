@@ -10,6 +10,7 @@
 
 // Project includes
 #include "user.h"
+#include "lcd.h"
 #include "mcc_generated_files/tmr2.h"
 #include "mcc_generated_files/spi1.h"
 #include "mcc_generated_files/spi2.h"
@@ -88,9 +89,18 @@ void processADCPolling()
         // Start timer 2 to indicate when the A/D will have finished the conversion
         TMR2_Start();
         
+        // Capture the value "before"
+        uint16_t prevValue = gOutgoingValues[gLastADChannel];
+        
         // Call up the transformation function
         processChannel(gLastADChannel);
-
+        
+        // Did the value change?
+        bool bChange = (prevValue != gOutgoingValues[gLastADChannel]);
+        
+        // Update the LCD indicator for that channel
+        writeLCDString(0, gLastADChannel, (bChange)? "*" : " ");
+        
         // Update the last requested channel indicator
         gLastADChannel = nextChannel;
     }
