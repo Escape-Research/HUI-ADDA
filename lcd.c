@@ -10,8 +10,16 @@
 
 #include "user.h"
 #include "lcd.h"
+#include "mcc_generated_files/tmr4.h"
 
-char gLCDBuffer[2][8] = { };
+// Declare the LCD buffer and round-robin index
+char gLCDBuffer[16] = { };
+char gLCDActual[16] = { 
+    255, 255, 255, 255, 255, 255, 255, 255,
+    255, 255, 255, 255, 255, 255, 255, 255 };
+    
+unsigned int gLCDIndex = 0;
+bool gSecondNybble = false;
 
 /*   Port Mapping
      
@@ -54,6 +62,66 @@ void initializeLCD()
     sendLCDCommand(0x10);           // Set cursor 
     sendLCDCommand(0x0F);           // Display ON; Blinking cursor 
     sendLCDCommand(0x06);           // Entry Mode set 
+    
+    // Initialize the buffer
+    writeLCDString(0, 0, "HUI ADDAver. 1.0");
+    
+    // Kick start the timer
+    TMR4_Start();
+}
+
+void processLCDQueue()
+{
+    // Has enough time passed from the last LCD operation?
+    if (TMR4_GetElapsedThenClear())
+    {
+        // Stop the timer
+        TMR4_Stop();
+        
+        // Bring the enable back to low
+        LATBbits.LATB14 = 0;
+        
+        // Perform the next LCD operation in the queue
+        
+        if (!gSecondNybble)
+        {
+            // Is the new character different than the previous one?
+            if (gLCDBuffer[gLCDIndex] == gLCDActual[gLCDIndex])
+            {
+                // Move on to the next character
+                gLCDIndex = (gLCDIndex + 1) % 16;
+                
+                // Re-start the timer and exit
+                TMR4_Start();
+                return;
+            }
+            
+            // Output the upper half 
+            writeToLCDLAT(gLCDBuffer[gLCDIndex], true);
+            LATBbits.LATB15 = 1;    // D/I = high : send data
+            LATBbits.LATB14 = 1;    // Enable -> high
+            
+            // Prepare for next cycle
+            gSecondNybble = true;
+        }
+        else
+        {
+            // Output the lower half 
+            writeToLCDLAT(gLCDBuffer[gLCDIndex], false);
+            LATBbits.LATB15 = 1;    // D/I = high : send data
+            LATBbits.LATB14 = 1;    // Enable -> high
+            
+            // Record the new character
+            gLCDActual[gLCDIndex] = gLCDBuffer[gLCDIndex];
+            
+            // Prepare for next cycle
+            gLCDIndex = (gLCDIndex + 1) % 16;
+            gSecondNybble = false;
+        }
+        
+        // Start the timer again..
+        TMR4_Start();
+    }
 }
 
 void writeToLCDLAT(uint8_t b, bool bHighNibble)
@@ -82,17 +150,18 @@ void NybbleSync()
 { 
     LATBbits.LATB14 = 1;        // Enable -> high
     __delay_us(1);              // enable pulse width >= 300ns
-    LATBbits.LATB14 = 0;        //Clock enable: falling edge 
+    LATBbits.LATB14 = 0;        // Clock enable: falling edge 
 } 
 
 void sendLCDCommand(char cCommand)
 {
+    writeToLCDLAT(cCommand, true);  // Send upper 4 bits first
+    LATBbits.LATB15 = 0;            // D/I = low : send instruction
+    NybbleSync();
+    writeToLCDLAT(cCommand, false); // Send lower 4 bits
+    NybbleSync();
     
-}
-
-void queueLCDCharacter(char cChar)
-{
-    
+    LATBbits.LATB15 = 1;            // Switch back to data mode
 }
 
 void writeLCDString(unsigned int row, unsigned int column, char *pString)
@@ -119,7 +188,8 @@ void writeLCDString(unsigned int row, unsigned int column, char *pString)
             return;
         
         // Store the character in the buffer
-        gLCDBuffer[r][c] = ch;
+        unsigned int index = (r * 8) + c;
+        gLCDBuffer[index] = ch;
         
         // Increment the column count
         c++;
@@ -134,10 +204,9 @@ void clearLCDScreen()
 {
     // Fill the buffer with spaces
     
-    int i, j;
-    for (i = 0; i < 2; i++)
-        for (j = 0; j < 8; j++)
-            gLCDBuffer[i][j] = ' ';
+    int i;
+    for (i = 0; i < 16; i++)
+        gLCDBuffer[i] = ' ';
 }
 
 

@@ -10,8 +10,12 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
-// Declare the LCD buffer
-extern char gLCDBuffer[2][8];
+// Declare the LCD buffer and round-robin index
+extern char gLCDBuffer[16];
+extern char gLCDActual[16]; 
+extern unsigned int gLCDIndex;
+extern bool gSecondNybble;
+
 
 typedef union tagBitByte {
     struct {
@@ -31,6 +35,7 @@ typedef union tagBitByte {
 
 // public methods
 void initializeLCD();
+void processLCDQueue();
 void writeLCDString(unsigned int row, unsigned int column, char *pString);
 void clearLCDScreen();
 
@@ -38,8 +43,6 @@ void clearLCDScreen();
 void writeToLCDLAT(uint8_t b, bool bHighNibble);
 void NybbleSync(); 
 void sendLCDCommand(char cCommand);
-void queueLCDCharacter(char cChar);
-
 
 
 #ifdef	__cplusplus

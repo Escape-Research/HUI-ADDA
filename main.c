@@ -103,6 +103,9 @@ int main(void)
                 // Process D/A jobs
                 processDACUpdates();
                 
+                // Process LCD updating
+                processLCDQueue();
+                
                 break;
                 
             case calibration:
