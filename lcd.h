@@ -29,7 +29,18 @@ typedef union tagBitByte {
     };
 } BitByte;
 
+// public methods
 void initializeLCD();
+void writeLCDString(unsigned int row, unsigned int column, char *pString);
+void clearLCDScreen();
+
+// private methods
+void writeToLCDLAT(uint8_t b, bool bHighNibble);
+void NybbleSync(); 
+void sendLCDCommand(char cCommand);
+void queueLCDCharacter(char cChar);
+
+
 
 #ifdef	__cplusplus
 extern "C" {

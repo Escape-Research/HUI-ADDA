@@ -36,11 +36,54 @@ void initializeLCD()
     LATBbits.LATB14 = 0;
     LATBbits.LATB15 = 0;
     
-    // Wait a minimum of 40 ms after power-up before we do anything 
+    // Wait a minimum of 40ms after power-up before we do anything 
     __delay_ms(40);
     
-    
+    // Begin the wake-up sequence
+    writeToLCDLAT(0x30, false);     // put 0x30 on the output port
+    __delay_ms(5);                  // must wait 5ms busy flag not available
+    NybbleSync();                   // command 0x30 = Wake up
+    __delay_us(160);                // must wait 160us, busy flag not available 
+    NybbleSync();                   // command 0x30 = Wake up #2 
+    __delay_us(160);                // must wait 160us, busy flag not available 
+    NybbleSync();                   // command 0x30 = Wake up #3 
+    __delay_us(160);                // can check busy flag now instead of delay 
+    writeToLCDLAT(0x20, false);     // put 0x20 on the output port 
+    NybbleSync();                   // Function set: 4-bit interface 
+    sendLCDCommand(0x28);           // Function set: 4-bit/2-line 
+    sendLCDCommand(0x10);           // Set cursor 
+    sendLCDCommand(0x0F);           // Display ON; Blinking cursor 
+    sendLCDCommand(0x06);           // Entry Mode set 
 }
+
+void writeToLCDLAT(uint8_t b, bool bHighNibble)
+{
+    BitByte bb;
+    bb.byte = b;
+    
+    // Are we writing out the lower or upper half of the byte?
+    if (!bHighNibble)
+    {
+        LATBbits.LATB10 = bb.BITS.B0;
+        LATBbits.LATB11 = bb.BITS.B1;
+        LATBbits.LATB12 = bb.BITS.B2;
+        LATBbits.LATB13 = bb.BITS.B3;
+    }
+    else
+    {
+        LATBbits.LATB10 = bb.BITS.B4;
+        LATBbits.LATB11 = bb.BITS.B5;
+        LATBbits.LATB12 = bb.BITS.B6;
+        LATBbits.LATB13 = bb.BITS.B7;        
+    }
+}
+
+void NybbleSync() 
+{ 
+    LATBbits.LATB14 = 1;        // Enable -> high
+    __delay_us(1);              // enable pulse width >= 300ns
+    LATBbits.LATB14 = 0;        //Clock enable: falling edge 
+} 
 
 void sendLCDCommand(char cCommand)
 {
