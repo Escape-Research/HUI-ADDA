@@ -51,6 +51,7 @@
 
 // Declaration of global variables
 RUN_STATE gCurrentState = init; 
+uint8_t gCalState = 0;
 
 /*
                          Main application
@@ -69,6 +70,10 @@ int main(void)
     // Disable the Global Interrupts
     //INTERRUPT_GlobalDisable();
 
+    // Simple counters used to detect (and de-bounce push buttons)
+    unsigned int nBtn1Counter = 0;
+    unsigned int nBtn2Counter = 0;
+    
     // Simple state machine
     while (1)
     {
@@ -98,6 +103,22 @@ int main(void)
                 
             case normal:
                 
+                // Process calibration button
+                if (PORTAbits.RA0)
+                    nBtn1Counter++;
+                else
+                {
+                    // Should we enter calibration mode?
+                    if (nBtn1Counter > 1000)
+                    {
+                        gCurrentState = calibration;
+                        nBtn1Counter = 0;
+
+                        // Update the LCD
+                        writeLCDString(0, 0, "--------Cal Mode");
+                    }
+                }
+                
                 // We are implementing a form of "non preemptive" multi-tasking
                 
                 // Process A/D and transformation jobs
@@ -114,11 +135,69 @@ int main(void)
             case calibration:
                 
                 // Do calibration
-                // ...
+                switch (gCalState)
+                {
+                    case 0:     // first quarter
+                        // Update the LCD
+                        writeLCDString(1, 0, "Cal: 25%");
+                      
+                        break;
+                    case 1:     // half
+                        // Update the LCD
+                        writeLCDString(1, 0, "Cal: 50%");
+
+                        break;
+                    case 2:     // 3rd quarter
+                        // Update the LCD
+                        writeLCDString(1, 0, "Cal: 75%");
+
+                        break;
+                    case 3:     // full scale
+                        // Update the LCD
+                        writeLCDString(1, 0, "Cal:100%");
+
+                        break;
+                }
                 
-                // Save coefficients in flash
-                eraseFlashStorage();
-                writeToFlash((unsigned int *)gCoefficients, 32);
+                // Process calibration mode button
+                if (PORTAbits.RA1)
+                    nBtn2Counter++;
+                else
+                {
+                    // Should we exit the calibration mode?
+                    if (nBtn2Counter > 100)
+                    {
+                        // Switch the calibration mode
+                        gCalState = (gCalState + 1) % 4;
+                        nBtn2Counter = 0;
+                    }
+                }
+ 
+                // Process calibration exit button
+                if (PORTAbits.RA0)
+                    nBtn1Counter++;
+                else
+                {
+                    // Should we exit the calibration mode?
+                    if (nBtn1Counter > 1000)
+                    {
+                        // Reset transient state variables
+                        gCurrentState = normal;
+                        gCalState = 0;
+                        nBtn1Counter = 0;
+                        nBtn2Counter = 0;
+
+                        // Update the LCD
+                        writeLCDString(1, 0, "Saving..");
+
+                        // Save coefficients in flash
+                        eraseFlashStorage();
+                        writeToFlash((unsigned int *)gCoefficients, 32);
+
+                        // Update the LCD
+                        writeLCDString(0, 0, "********12345678");                
+                    }
+                }
         }
     }
     

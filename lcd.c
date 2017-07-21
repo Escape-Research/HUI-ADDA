@@ -19,6 +19,9 @@ char gLCDActual[16] = {
     255, 255, 255, 255, 255, 255, 255, 255 };
     
 unsigned int gLCDIndex = 0;
+bool gNeedToMove = false;
+bool gIsCommand = false;
+uint8_t gCommand = 0x80;
 bool gSecondNybble = false;
 
 /*   Port Mapping
@@ -86,19 +89,50 @@ void processLCDQueue()
         if (!gSecondNybble)
         {
             // Is the new character different than the previous one?
-            if (gLCDBuffer[gLCDIndex] == gLCDActual[gLCDIndex])
+            if (!gIsCommand)
             {
-                // Move on to the next character
-                gLCDIndex = (gLCDIndex + 1) % 16;
-                
-                // Re-start the timer and exit
-                TMR4_Start();
-                return;
+                if (gLCDBuffer[gLCDIndex] == gLCDActual[gLCDIndex])
+                {
+                    // Move on to the next character
+                    gLCDIndex = (gLCDIndex + 1) % 16;
+
+                    // Mark that we'll need to move the cursor!
+                    gNeedToMove = true;
+
+                    // Re-start the timer and exit
+                    TMR4_Start();
+                    return;
+                }
             }
             
-            // Output the upper half 
-            writeToLCDLAT(gLCDBuffer[gLCDIndex], true);
-            LATBbits.LATB15 = 1;    // D/I = high : send data
+            // Do we need to move first?
+            if (gNeedToMove)
+            {
+                // Move the cursor to the new pos
+                if (gLCDIndex < 8)
+                    gCommand = 0x80 + gLCDIndex;
+                else
+                    gCommand = 0xC0 + gLCDIndex;
+                
+                // Setup the command sequence
+                gIsCommand = true;
+                gNeedToMove = false;
+            }
+            
+            // Is it a command or data?
+            if (gIsCommand)
+            {
+                // Output the upper half 
+                writeToLCDLAT(gCommand, true);
+                LATBbits.LATB15 = 0;    // D/I = low : send command
+            }
+            else
+            {
+                // Output the upper half 
+                writeToLCDLAT(gLCDBuffer[gLCDIndex], true);
+                LATBbits.LATB15 = 1;    // D/I = high : send data
+            }
+                
             LATBbits.LATB14 = 1;    // Enable -> high
             
             // Prepare for next cycle
@@ -106,9 +140,22 @@ void processLCDQueue()
         }
         else
         {
-            // Output the lower half 
-            writeToLCDLAT(gLCDBuffer[gLCDIndex], false);
-            LATBbits.LATB15 = 1;    // D/I = high : send data
+            if (gIsCommand)
+            {
+                // Output the lower half 
+                writeToLCDLAT(gCommand, false);
+                LATBbits.LATB15 = 0;    // D/I = low : send command
+                
+                // We are done with the command
+                gIsCommand = false;
+            }
+            else
+            {                
+                // Output the lower half 
+                writeToLCDLAT(gLCDBuffer[gLCDIndex], false);
+                LATBbits.LATB15 = 1;    // D/I = high : send data
+            }
+            
             LATBbits.LATB14 = 1;    // Enable -> high
             
             // Record the new character
@@ -207,6 +254,9 @@ void clearLCDScreen()
     int i;
     for (i = 0; i < 16; i++)
         gLCDBuffer[i] = ' ';
+    
+    // Send the command to move cursor back to 0x00 position
+    sendLCDCommand(0x80);
 }
 
 
