@@ -53,6 +53,17 @@
 RUN_STATE gCurrentState = init; 
 uint8_t gCalState = 0;
 
+// Channel buffer for capturing and calculating averages
+uint16_t gAvgBuffer[8][16] = { };
+
+void clearAvgBuffer()
+{
+    int i, j;
+    for (i = 0; i < 8; i++)
+        for (j = 0; j < 16; j++)
+            gAvgBuffer[i][j] = 0;
+}
+
 /*
                          Main application
  */
@@ -73,6 +84,9 @@ int main(void)
     // Simple counters used to detect (and de-bounce push buttons)
     unsigned int nBtn1Counter = 0;
     unsigned int nBtn2Counter = 0;
+    
+    unsigned int currCalibrationChannel = 0;
+    unsigned int currCalibrationCount = 0;
     
     // Simple state machine
     while (1)
@@ -112,7 +126,13 @@ int main(void)
                     if (nBtn1Counter > 1000)
                     {
                         gCurrentState = calibration;
+                        gCalState = 0;
                         nBtn1Counter = 0;
+                        currCalibrationChannel = 0;
+                        currCalibrationCount = 0;
+                        
+                        // Clear the avg. buffer
+                        clearAvgBuffer();
 
                         // Update the LCD
                         writeLCDString(0, 0, "--------Cal Mode");
@@ -135,12 +155,17 @@ int main(void)
             case calibration:
                 
                 // Do calibration
+                
+                // Round-robin the channels and buffer positions
+                // TODO
+                
+                // Update the appropriate coefficients based on cal. state
                 switch (gCalState)
                 {
                     case 0:     // first quarter
                         // Update the LCD
                         writeLCDString(1, 0, "Cal: 25%");
-                      
+                        
                         break;
                     case 1:     // half
                         // Update the LCD
@@ -170,6 +195,9 @@ int main(void)
                         // Switch the calibration mode
                         gCalState = (gCalState + 1) % 4;
                         nBtn2Counter = 0;
+                        
+                        // Clear the avg. buffer
+                        clearAvgBuffer();
                     }
                 }
  

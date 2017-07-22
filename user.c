@@ -105,6 +105,23 @@ void processADCPolling()
         gLastADChannel = nextChannel;
     }
 }
+
+// Perform a single ADC read
+uint16_t readADCChannel(unsigned int channel)
+{
+    // Send / Receive on the A/D SPI
+    uint16_t buffer = 0;
+    
+    // Use this call to tell the ADC which channel we want to read
+    SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
+    __delay_us(10);
+    
+    // And this call to actually read back the value!
+    SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
+    __delay_us(10);
+    
+    return buffer;
+}
                 
 // Process transformations
 void processChannel(int channel)
