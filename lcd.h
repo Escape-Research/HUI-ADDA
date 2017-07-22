@@ -37,12 +37,14 @@ typedef union tagBitByte {
 void initializeLCD();
 void processLCDQueue();
 void writeLCDString(unsigned int row, unsigned int column, char *pString);
+void writeLCDStringSync(unsigned int row, unsigned int column, char *pString);
 void clearLCDScreen();
 
 // private methods
 void writeToLCDLAT(uint8_t b, bool bHighNibble);
 void NybbleSync(); 
 void sendLCDCommand(char cCommand);
+void sendLCDData(char cData);
 
 
 #ifdef	__cplusplus

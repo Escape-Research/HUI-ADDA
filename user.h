@@ -117,7 +117,7 @@ void initializeADC();
 void processADCPolling();
 
 // Perform a single ADC read
-uint16_t readADCChannel(unsigned int channel);
+uint16_t readADCChannel(unsigned int channel);  
                 
 // Process transformations
 void processChannel(int channel);

@@ -211,6 +211,15 @@ void sendLCDCommand(char cCommand)
     LATBbits.LATB15 = 1;            // Switch back to data mode
 }
 
+void sendLCDData(char cData)
+{
+    writeToLCDLAT(cData, true);     // Send upper 4 bits first
+    LATBbits.LATB15 = 1;            // D/I = high : send data
+    NybbleSync();
+    writeToLCDLAT(cData, false);    // Send lower 4 bits
+    NybbleSync();
+}
+
 void writeLCDString(unsigned int row, unsigned int column, char *pString)
 {
     // Initialize row and column counters
@@ -244,6 +253,25 @@ void writeLCDString(unsigned int row, unsigned int column, char *pString)
         // Move to the next character
         pString++;
         ch = *pString;
+    }
+}
+
+void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
+{
+    // Update the LCD buffer
+    writeLCDString(row, column, pString);
+    
+    // Send the command to move cursor back to 0x00 position
+    sendLCDCommand(0x80);
+    
+    // Write the whole string on the display
+    int index;
+    for (index = 0; index < 16; index++)
+    {
+        // Send character to LCD
+        sendLCDData(gLCDBuffer[index]);
+        // Update the "actual" buffer contents
+        gLCDActual[index] = gLCDBuffer[index];
     }
 }
 

@@ -108,7 +108,7 @@ void processADCPolling()
 
 // Perform a single ADC read
 uint16_t readADCChannel(unsigned int channel)
-{
+{   
     // Send / Receive on the A/D SPI
     uint16_t buffer = 0;
     

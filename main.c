@@ -56,6 +56,7 @@ uint8_t gCalState = 0;
 // Channel buffer for capturing and calculating averages
 uint16_t gAvgBuffer[8][16] = { };
 
+// Clear the buffer used for averaging
 void clearAvgBuffer()
 {
     int i, j;
@@ -88,6 +89,8 @@ int main(void)
     unsigned int currCalibrationChannel = 0;
     unsigned int currCalibrationCount = 0;
     
+    uint16_t value = 0;
+    
     // Simple state machine
     while (1)
     {
@@ -108,7 +111,7 @@ int main(void)
                 readFromFlash((unsigned int *)gCoefficients, 32);
                 
                 // Update the LCD
-                writeLCDString(0, 0, "********12345678");
+                writeLCDStringSync(0, 0, "********12345678");
                 
                 // switch to normal mode
                 gCurrentState = normal;
@@ -135,7 +138,7 @@ int main(void)
                         clearAvgBuffer();
 
                         // Update the LCD
-                        writeLCDString(0, 0, "--------Cal Mode");
+                        writeLCDStringSync(0, 0, "--------Cal Mode");
                     }
                 }
                 
@@ -157,7 +160,34 @@ int main(void)
                 // Do calibration
                 
                 // Round-robin the channels and buffer positions
-                // TODO
+                
+                // read the next buffer location for the curr. channel
+                value = readADCChannel(currCalibrationChannel);
+                gAvgBuffer[currCalibrationChannel][currCalibrationCount] = value;
+                
+                // Do we have 1t6 readings for this channel?
+                currCalibrationCount++;
+                if (currCalibrationCount > 15)
+                {
+                    // Calculate and update the coefficient for this channel
+                    double avg = 0;
+                    int i = 0;
+                    for (i = 0; i < 16; i++)
+                        avg += gAvgBuffer[currCalibrationChannel][i];
+                    avg /= 16;
+                    
+                    // Update the coefficient for this position and channel
+                    gCoefficients[currCalibrationChannel][gCalState] = avg;
+                    
+                    // Update the display
+                    writeLCDString(0, currCalibrationChannel, "+");
+                    
+                    // round-robin the channels
+                    currCalibrationChannel = (currCalibrationChannel + 1) % 8;
+                    
+                    // reset the counter
+                    currCalibrationCount = 0;
+                }
                 
                 // Update the appropriate coefficients based on cal. state
                 switch (gCalState)
@@ -216,16 +246,19 @@ int main(void)
                         nBtn2Counter = 0;
 
                         // Update the LCD
-                        writeLCDString(1, 0, "Saving..");
+                        writeLCDStringSync(1, 0, "Saving..");
 
                         // Save coefficients in flash
                         eraseFlashStorage();
                         writeToFlash((unsigned int *)gCoefficients, 32);
 
                         // Update the LCD
-                        writeLCDString(0, 0, "********12345678");                
+                        writeLCDStringSync(0, 0, "********12345678");                
                     }
                 }
+                
+                // Process LCD updates
+                processLCDQueue();
         }
     }
     
