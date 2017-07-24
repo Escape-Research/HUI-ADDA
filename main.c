@@ -137,8 +137,8 @@ int main(void)
                         // Clear the avg. buffer
                         clearAvgBuffer();
 
-                        // Update the LCD
-                        writeLCDStringSync(0, 0, "--------Cal Mode");
+                        // Update the LCD (we start from the 25% point)
+                        writeLCDStringSync(0, 0, "--------Cal: 25%");
                     }
                 }
                 
@@ -189,46 +189,39 @@ int main(void)
                     currCalibrationCount = 0;
                 }
                 
-                // Update the appropriate coefficients based on cal. state
-                switch (gCalState)
-                {
-                    case 0:     // first quarter
-                        // Update the LCD
-                        writeLCDString(1, 0, "Cal: 25%");
-                        
-                        break;
-                    case 1:     // half
-                        // Update the LCD
-                        writeLCDString(1, 0, "Cal: 50%");
-
-                        break;
-                    case 2:     // 3rd quarter
-                        // Update the LCD
-                        writeLCDString(1, 0, "Cal: 75%");
-
-                        break;
-                    case 3:     // full scale
-                        // Update the LCD
-                        writeLCDString(1, 0, "Cal:100%");
-
-                        break;
-                }
-                
                 // Process calibration mode button
                 if (PORTAbits.RA1)
                     nBtn2Counter++;
                 else
                 {
-                    // Should we exit the calibration mode?
+                    // Should we switch the calibration mode?
                     if (nBtn2Counter > 100)
                     {
                         // Switch the calibration mode
                         gCalState = (gCalState + 1) % 4;
                         nBtn2Counter = 0;
                         
+                        // Update the display based on cal. state
+                        switch (gCalState)
+                        {
+                            case 0:     // first quarter
+                                writeLCDStringSync(1, 0, "Cal: 25%");
+                                break;
+                            case 1:     // half
+                                writeLCDStringSync(1, 0, "Cal: 50%");
+                                break;
+                            case 2:     // 3rd quarter
+                                writeLCDStringSync(1, 0, "Cal: 75%");
+                                break;
+                            case 3:     // full scale
+                                writeLCDStringSync(1, 0, "Cal:100%");
+                                break;
+                        }
+                        
                         // Clear the avg. buffer
                         clearAvgBuffer();
                     }
+                    nBtn2Counter = 0;
                 }
  
                 // Process calibration exit button
@@ -255,6 +248,7 @@ int main(void)
                         // Update the LCD
                         writeLCDStringSync(0, 0, "********12345678");                
                     }
+                    nBtn1Counter = 0;
                 }
                 
                 // Process LCD updates
