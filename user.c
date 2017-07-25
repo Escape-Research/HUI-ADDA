@@ -27,6 +27,11 @@ unsigned int gCoefficients[8][4] = {
     { _16BIT_1Q, _16BIT_HALF, _16BIT_3Q, _16BIT_FS }
 };
 
+// Averaging Buffers (for noise suppression)
+bool gUseAveraging = true;
+uint16_t gCircularBuffers[8][16] = { };
+unsigned int gCircularBufferHead[8] = { };
+
 // The LTC1867 sequential commands
 LTC1867Config gLTC1867Commands[8] = {
     { .BITS = { 1, 0, 0, 0, 0, 1, 0 }},    // CHO
@@ -122,12 +127,48 @@ uint16_t readADCChannel(unsigned int channel)
     
     return buffer;
 }
-                
+
+// Push a new value into the circular buffer (used for averaging)
+void pushToBuffer(unsigned int nBuffer, uint16_t value)
+{
+    // Store the next value and update the index
+    gCircularBuffers[nBuffer][gCircularBufferHead[nBuffer]] = value;
+    
+    // Update the index
+    gCircularBufferHead[nBuffer] = (gCircularBufferHead[nBuffer] + 1) % NUM_OF_AVERAGES;
+}
+
+// Calculate and return the current average value for a channel 
+// using the last stored values in the circular buffers
+uint16_t getAvgForChannel(unsigned int nBuffer)
+{
+    // Calculate the average value for a channel
+    double dTotal = 0;
+    
+    int i;
+    for (i = 0; i < NUM_OF_AVERAGES; i++)
+        dTotal += gCircularBuffers[nBuffer][i];
+    
+    dTotal /= NUM_OF_AVERAGES;
+    
+    return dTotal;
+}
+            
 // Process transformations
 void processChannel(int channel)
 {
     // The incoming unprocessed value
     uint16_t input = gIncomingValues[channel];
+    
+    // Are we using averaging?
+    if (gUseAveraging)
+    {
+        // Push the last value into the circular buffer
+        pushToBuffer(channel, input);
+        
+        // ... and calculate the average value for this channel
+        input = getAvgForChannel(channel);
+    }
     
     double factor;
     uint16_t result = 0;

@@ -27,6 +27,12 @@
 // The calibration coefficients in RAM
 extern unsigned int gCoefficients[8][4];
 
+// Averaging Buffers (for noise suppression)
+#define NUM_OF_AVERAGES 16
+extern bool gUseAveraging;
+extern uint16_t gCircularBuffers[8][NUM_OF_AVERAGES];
+extern unsigned int gCircularBufferHead[8];
+
 // Machine States
 typedef enum tagRUN_STATE {
     init        = 0,
@@ -127,6 +133,10 @@ void initializeDAC();
 
 // Process D/A jobs
 void processDACUpdates();
+
+// Circular buffer management and averaging
+void pushToBuffer(unsigned int nBuffer, uint16_t value);
+uint16_t getAvgForChannel(unsigned int nBuffer);
 
 
 #ifdef	__cplusplus
