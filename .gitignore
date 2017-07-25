@@ -3,3 +3,5 @@
 /debug/
 **/*.*~
 /nbproject/private/private.xml
+**/Makefile-genesis.properties
+
