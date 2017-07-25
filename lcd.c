@@ -12,6 +12,9 @@
 #include "lcd.h"
 #include "mcc_generated_files/tmr4.h"
 
+// Global LCD on/off switch
+bool gLCDon = true;
+
 // Declare the LCD buffer and round-robin index
 char gLCDBuffer[16] = { };
 char gLCDActual[16] = { 
@@ -71,6 +74,39 @@ void initializeLCD()
     
     // Kick start the timer
     TMR4_Start();
+}
+
+void switchLCDState(bool bOnOff)
+{
+    // Is there anything to do?
+    if (bOnOff == gLCDon)
+        return;
+    
+    if (bOnOff)
+    {
+        // Turn off the LCD
+
+        TMR4_Stop();    // Stop the LCD asynchronous updating
+        
+        // Clear the screen
+        writeLCDStringSync(0, 0, "                ");
+        // Move cursor back to 0x00 position
+        sendLCDCommand(0x80);
+        
+        // Set the global flag
+        gLCDon = false;
+    }
+    else
+    {
+        // Set the global flag
+        gLCDon = true;
+        
+        // Initialize the buffer
+        writeLCDString(0, 0, "HUI ADDAver. 1.0");
+        
+        // Kick start the timer
+        TMR4_Start();        
+    }
 }
 
 void processLCDQueue()
@@ -154,13 +190,18 @@ void processLCDQueue()
                 // Output the lower half 
                 writeToLCDLAT(gLCDBuffer[gLCDIndex], false);
                 LATBbits.LATB15 = 1;    // D/I = high : send data
+                
+                // Was this the last character?
+                if (gLCDIndex == 15)
+                    // Send the command to move cursor back to 0x00 position
+                    sendLCDCommand(0x80);
             }
             
             LATBbits.LATB14 = 1;    // Enable -> high
             
             // Record the new character
             gLCDActual[gLCDIndex] = gLCDBuffer[gLCDIndex];
-            
+
             // Prepare for next cycle
             gLCDIndex = (gLCDIndex + 1) % 16;
             gSecondNybble = false;
@@ -175,6 +216,10 @@ void writeToLCDLAT(uint8_t b, bool bHighNibble)
 {
     BitByte bb;
     bb.byte = b;
+    
+    // Is the LCD on?
+    if (!gLCDon)
+        return;
     
     // Are we writing out the lower or upper half of the byte?
     if (!bHighNibble)
@@ -195,6 +240,10 @@ void writeToLCDLAT(uint8_t b, bool bHighNibble)
 
 void NybbleSync() 
 { 
+    // Is the LCD on?
+    if (!gLCDon)
+        return;
+
     LATBbits.LATB14 = 1;        // Enable -> high
     __delay_us(1);              // enable pulse width >= 300ns
     LATBbits.LATB14 = 0;        // Clock enable: falling edge 
@@ -202,6 +251,10 @@ void NybbleSync()
 
 void sendLCDCommand(char cCommand)
 {
+    // Is the LCD on?
+    if (!gLCDon)
+        return;
+
     writeToLCDLAT(cCommand, true);  // Send upper 4 bits first
     LATBbits.LATB15 = 0;            // D/I = low : send instruction
     NybbleSync();
@@ -213,6 +266,10 @@ void sendLCDCommand(char cCommand)
 
 void sendLCDData(char cData)
 {
+    // Is the LCD on?
+    if (!gLCDon)
+        return;
+
     writeToLCDLAT(cData, true);     // Send upper 4 bits first
     LATBbits.LATB15 = 1;            // D/I = high : send data
     NybbleSync();
@@ -261,6 +318,13 @@ void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
     // Update the LCD buffer
     writeLCDString(row, column, pString);
     
+    // Is the LCD on?
+    if (!gLCDon)
+        return;
+    
+    // Make sure that Timer 4 will not interrupt this call
+    TMR4_Stop();
+    
     // Send the command to move cursor back to 0x00 position
     sendLCDCommand(0x80);
     
@@ -273,6 +337,9 @@ void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
         // Update the "actual" buffer contents
         gLCDActual[index] = gLCDBuffer[index];
     }
+    
+    // Re-start the timer
+    TMR4_Start();
 }
 
 void clearLCDScreen()

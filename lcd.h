@@ -10,6 +10,9 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 
+// Global LCD on/off switch
+extern bool gLCDon;
+
 // Declare the LCD buffer and round-robin index
 extern char gLCDBuffer[16];
 extern char gLCDActual[16]; 
@@ -35,6 +38,7 @@ typedef union tagBitByte {
 
 // public methods
 void initializeLCD();
+void switchLCDState(bool bOnOff);
 void processLCDQueue();
 void writeLCDString(unsigned int row, unsigned int column, char *pString);
 void writeLCDStringSync(unsigned int row, unsigned int column, char *pString);

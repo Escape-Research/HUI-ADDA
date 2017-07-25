@@ -142,6 +142,30 @@ int main(void)
                     }
                 }
                 
+                
+                // Process LCD on/off button
+                if (PORTAbits.RA1)
+                    nBtn2Counter++;
+                else
+                {
+                    // Should we change the LCD state?
+                    if (nBtn2Counter > 100)
+                    {
+                         // Update the LCD based on the new state
+                        if (gLCDon)
+                        {
+                           writeLCDStringSync(0, 0, "                ");
+                           switchLCDState(false);
+                        }
+                        else
+                        {
+                           switchLCDState(true);
+                           writeLCDStringSync(0, 0, "********12345678");                       
+                        }
+                    }
+                    nBtn2Counter = 0;
+                }
+                        
                 // We are implementing a form of "non preemptive" multi-tasking
                 
                 // Process A/D and transformation jobs
