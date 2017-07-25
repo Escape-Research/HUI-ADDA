@@ -67,8 +67,10 @@ void initializeADC()
 {
     // Send command to LTC to begin sampling CH0
     uint16_t receiveBuffer; // the dummy receive buffer
+    //INTERRUPT_GlobalDisable();
     SPI1_Exchange16bitBuffer(&gLTC1867Commands[0].word, 2, &receiveBuffer);
-    
+    //INTERRUPT_GlobalEnable();
+
     // Update the last requested channel indicator
     gLastADChannel = 0;
     
@@ -89,7 +91,9 @@ void processADCPolling()
         unsigned int nextChannel = (gLastADChannel + 1) % 8;
         
         // Send / Receive on the A/D SPI
+        //INTERRUPT_GlobalDisable();
         SPI1_Exchange16bitBuffer(&gLTC1867Commands[nextChannel].word, 2, &gIncomingValues[gLastADChannel]);
+        //INTERRUPT_GlobalEnable();
 
         // Start timer 2 to indicate when the A/D will have finished the conversion
         TMR2_Start();
@@ -118,11 +122,14 @@ uint16_t readADCChannel(unsigned int channel)
     uint16_t buffer = 0;
     
     // Use this call to tell the ADC which channel we want to read
+    //INTERRUPT_GlobalDisable();
     SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
     __delay_us(10);
     
     // And this call to actually read back the value!
     SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
+    //INTERRUPT_GlobalEnable();
+
     __delay_us(10);
     
     return buffer;
@@ -250,7 +257,9 @@ void processChannel(int channel)
 void initializeDAC()
 {
     uint16_t receiveBuffer[2]; // dummy receive buffer
+    //INTERRUPT_GlobalDisable();
     SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, receiveBuffer);
+    //INTERRUPT_GlobalEnable();
     
     // Setup last channel indicator to the last channel (so it will roll to first)
     gLastDACChannel = 7;
@@ -274,7 +283,9 @@ void processDACUpdates()
     
     // Initiate the SPI communication to the DAC
     uint16_t receiveBuffer[2]; // dummy receive buffer
+    //INTERRUPT_GlobalDisable();
     SPI2_Exchange16bitBuffer(DACConfig.words, 4, receiveBuffer);
+    //INTERRUPT_GlobalEnable();
     
     // Update the last channel indicator
     gLastDACChannel = channel;
