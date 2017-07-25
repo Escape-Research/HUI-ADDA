@@ -68,8 +68,8 @@ void SPI2_Initialize (void)
 {
     // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP Middle; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
     SPI2CON1 = 0x420;
-    // SPIFSD disabled; SPIBEN disabled; FRMPOL disabled; FRMDLY disabled; FRMEN enabled; 
-    SPI2CON2 = 0x8000;
+    // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN enabled; 
+    SPI2CON2 = 0x8001;
     // SISEL SPI_INT_SPIRBF; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
     SPI2STAT = 0x800C;
 }
