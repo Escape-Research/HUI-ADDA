@@ -150,7 +150,6 @@ uint16_t TMR2_Counter16BitGet( void )
 void __attribute__ ((weak)) TMR2_CallBack(void)
 {
     // Add your custom callback code here
-    TMR2_Stop();
 }
 
 void TMR2_Start( void )

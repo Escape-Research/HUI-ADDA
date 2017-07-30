@@ -121,7 +121,7 @@ int main(void)
             case normal:
                 
                 // Process calibration button
-                if (PORTAbits.RA0)
+                if (!PORTAbits.RA0)
                     nBtn1Counter++;
                 else
                 {
@@ -144,7 +144,7 @@ int main(void)
                 
                 
                 // Process LCD on/off button
-                if (PORTAbits.RA1)
+                if (!PORTAbits.RA1)
                     nBtn2Counter++;
                 else
                 {
@@ -214,7 +214,7 @@ int main(void)
                 }
                 
                 // Process calibration mode button
-                if (PORTAbits.RA1)
+                if (!PORTAbits.RA1)
                     nBtn2Counter++;
                 else
                 {
@@ -249,7 +249,7 @@ int main(void)
                 }
  
                 // Process calibration exit button
-                if (PORTAbits.RA0)
+                if (!PORTAbits.RA0)
                     nBtn1Counter++;
                 else
                 {

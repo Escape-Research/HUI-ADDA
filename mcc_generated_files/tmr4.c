@@ -150,7 +150,6 @@ uint16_t TMR4_Counter16BitGet( void )
 void __attribute__ ((weak)) TMR4_CallBack(void)
 {
     // Add your custom callback code here
-    TMR4_Stop();
 }
 
 void TMR4_Start( void )

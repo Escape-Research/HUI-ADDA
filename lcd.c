@@ -54,7 +54,7 @@ void initializeLCD()
     __delay_ms(40);
     
     // Begin the wake-up sequence
-    writeToLCDLAT(0x30, false);     // put 0x30 on the output port
+    writeToLCDLAT(0x30, true);      // put 0x30 on the output port
     __delay_ms(5);                  // must wait 5ms busy flag not available
     NybbleSync();                   // command 0x30 = Wake up
     __delay_us(160);                // must wait 160us, busy flag not available 
@@ -62,15 +62,16 @@ void initializeLCD()
     __delay_us(160);                // must wait 160us, busy flag not available 
     NybbleSync();                   // command 0x30 = Wake up #3 
     __delay_us(160);                // can check busy flag now instead of delay 
-    writeToLCDLAT(0x20, false);     // put 0x20 on the output port 
+    writeToLCDLAT(0x20, true);      // put 0x20 on the output port 
     NybbleSync();                   // Function set: 4-bit interface 
+
     sendLCDCommand(0x28);           // Function set: 4-bit/2-line 
     sendLCDCommand(0x10);           // Set cursor 
     sendLCDCommand(0x0F);           // Display ON; Blinking cursor 
     sendLCDCommand(0x06);           // Entry Mode set 
     
     // Initialize the buffer
-    writeLCDString(0, 0, "HUI ADDAver. 1.0");
+    writeLCDStringSync(0, 0, "HUI ADDAver. 1.0");
     
     // Kick start the timer
     TMR4_Start();
@@ -245,7 +246,7 @@ void NybbleSync()
         return;
 
     LATBbits.LATB14 = 1;        // Enable -> high
-    __delay_us(1);              // enable pulse width >= 300ns
+    __delay_us(35);              // enable pulse width >= 300ns
     LATBbits.LATB14 = 0;        // Clock enable: falling edge 
 } 
 

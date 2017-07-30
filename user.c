@@ -256,9 +256,9 @@ void processChannel(int channel)
 // Setup the internal reference for the AD5668 DAC
 void initializeDAC()
 {
-    uint16_t receiveBuffer[2]; // dummy receive buffer
+    //uint16_t receiveBuffer[2]; // dummy receive buffer
     //INTERRUPT_GlobalDisable();
-    SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, receiveBuffer);
+    SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, NULL);
     //INTERRUPT_GlobalEnable();
     
     // Setup last channel indicator to the last channel (so it will roll to first)
@@ -282,9 +282,9 @@ void processDACUpdates()
     DACConfig.data = gOutgoingValues[channel];
     
     // Initiate the SPI communication to the DAC
-    uint16_t receiveBuffer[2]; // dummy receive buffer
+    //uint16_t receiveBuffer[2]; // dummy receive buffer
     //INTERRUPT_GlobalDisable();
-    SPI2_Exchange16bitBuffer(DACConfig.words, 4, receiveBuffer);
+    SPI2_Exchange16bitBuffer(DACConfig.words, 4, NULL);
     //INTERRUPT_GlobalEnable();
     
     // Update the last channel indicator

@@ -176,7 +176,7 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
         }
 
     }
-    while (count)
+/*    while (count)
     {
         if (SPI2STATbits.SRXMPT == false)
         {
@@ -188,7 +188,7 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
             count--;
         }
     }
-
+*/
     return dataSentCount;
 }
 

@@ -13,7 +13,7 @@
 
 // Declare the __delay functions
 #include "mcc_generated_files/mcc.h"
-#define FCY (_XTAL_FREQ/2)
+#define FCY (_XTAL_FREQ / 2)
 #include "libpic30.h"
 
 // Global declarations
