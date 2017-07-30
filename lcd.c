@@ -72,6 +72,9 @@ void initializeLCD()
     
     // Initialize the buffer
     writeLCDStringSync(0, 0, "HUI ADDAver. 1.0");
+
+    // Wait for 1 sec (to read version on display)
+    __delay_ms(100);
     
     // Kick start the timer
     TMR4_Start();
@@ -149,7 +152,7 @@ void processLCDQueue()
                 if (gLCDIndex < 8)
                     gCommand = 0x80 + gLCDIndex;
                 else
-                    gCommand = 0xC0 + gLCDIndex;
+                    gCommand = 0xC0 + (gLCDIndex - 8);
                 
                 // Setup the command sequence
                 gIsCommand = true;
@@ -246,7 +249,7 @@ void NybbleSync()
         return;
 
     LATBbits.LATB14 = 1;        // Enable -> high
-    __delay_us(35);              // enable pulse width >= 300ns
+    __delay_us(40);             // enable pulse width >= 300ns
     LATBbits.LATB14 = 0;        // Clock enable: falling edge 
 } 
 
@@ -329,9 +332,20 @@ void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
     // Send the command to move cursor back to 0x00 position
     sendLCDCommand(0x80);
     
-    // Write the whole string on the display
+    // Write the first row on the display
     int index;
-    for (index = 0; index < 16; index++)
+    for (index = 0; index < 8; index++)
+    {
+        // Send character to LCD
+        sendLCDData(gLCDBuffer[index]);
+        // Update the "actual" buffer contents
+        gLCDActual[index] = gLCDBuffer[index];
+    }
+
+    // Move the DDRAM location to 0x40
+    sendLCDCommand(0xC0);    
+    // Write the second row on the display
+    for (index = 8; index < 16; index++)
     {
         // Send character to LCD
         sendLCDData(gLCDBuffer[index]);
