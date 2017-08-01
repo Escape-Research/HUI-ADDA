@@ -111,7 +111,7 @@ int main(void)
                 readFromFlash((unsigned int *)gCoefficients, 32);
                 
                 // Update the LCD
-                writeLCDStringSync(0, 0, "********12345678");
+                writeLCDStringSync(0, 0, "        12345678");
                 
                 // switch to normal mode
                 gCurrentState = normal;
@@ -160,7 +160,7 @@ int main(void)
                         else
                         {
                            switchLCDState(true);
-                           writeLCDStringSync(0, 0, "********12345678");                       
+                           writeLCDStringSync(0, 0, "        12345678");                       
                         }
                     }
                     nBtn2Counter = 0;
@@ -270,7 +270,7 @@ int main(void)
                         writeToFlash((unsigned int *)gCoefficients, 32);
 
                         // Update the LCD
-                        writeLCDStringSync(0, 0, "********12345678");                
+                        writeLCDStringSync(0, 0, "        12345678");                
                     }
                     nBtn1Counter = 0;
                 }
