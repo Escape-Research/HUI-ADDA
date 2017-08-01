@@ -66,6 +66,11 @@ void initializeLCD()
     NybbleSync();                   // Function set: 4-bit interface 
 
     sendLCDCommand(0x28);           // Function set: 4-bit/2-line 
+    
+    // Write special symbols to CGRAM
+    // TODO
+    
+    // Prepare display for first use
     sendLCDCommand(0x10);           // Set cursor 
     sendLCDCommand(0x0F);           // Display ON; Blinking cursor 
     sendLCDCommand(0x06);           // Entry Mode set 
@@ -334,19 +339,13 @@ void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
     
     // Write the first row on the display
     int index;
-    for (index = 0; index < 8; index++)
+    for (index = 0; index < 16; index++)
     {
-        // Send character to LCD
-        sendLCDData(gLCDBuffer[index]);
-        // Update the "actual" buffer contents
-        gLCDActual[index] = gLCDBuffer[index];
-    }
-
-    // Move the DDRAM location to 0x40
-    sendLCDCommand(0xC0);    
-    // Write the second row on the display
-    for (index = 8; index < 16; index++)
-    {
+        // Do we need to move to the next line?
+        if (index == 8)
+            // Move the DDRAM location to 0x40
+            sendLCDCommand(0xC0);    
+        
         // Send character to LCD
         sendLCDData(gLCDBuffer[index]);
         // Update the "actual" buffer contents
@@ -365,69 +364,6 @@ void clearLCDScreen()
     for (i = 0; i < 16; i++)
         gLCDBuffer[i] = ' ';
     
-    // Send the command to move cursor back to 0x00 position
-    sendLCDCommand(0x80);
+    // Send the command to clear screen
+    sendLCDCommand(0x01);
 }
-
-
-/*
- 
-
-4-bit Initialization: 
-// ********************************************************** 
-void command(char i) 
-{ 
-    P1 = i;                       //put data on output Port 
-    D_I =0;                       //D/I=LOW : send instruction 
-    R_W =0;                       //R/W=LOW : Write     
-    Nybble();                     //Send lower 4 bits
-    i = i<<4;                     //Shift over by 4 bits 
-    P1 = i;                       //put data on output Port 
-    Nybble();                     //Send upper 4 bits 
-} 
-
-// ********************************************************** 
-void write(char i) 
-{ 
-    P1 = i;                       //put data on output Port 
-    D_I =1;                       //D/I=HIGH : send data 
-    R_W =0;                       //R/W=LOW : Write    
-    Nybble();                     //Clock lower 4 bits 
-    i = i<<4;                     //Shift over by 4 bits 
-    P1 = i;                       //put data on output Port 
-    Nybble();                     //Clock upper 4 bits 
-} 
- 
-// ********************************************************** 
-void Nybble() 
-{ 
-    E = 1; 
-    Delay(1);                     //enable pulse width >= 300ns 
-    E = 0;                        //Clock enable: falling edge 
-} 
- 
-// ********************************************************** 
-void init() 
-{ 
-    P1 = 0; 
-    P3 = 0; 
-    Delay(100);                   //Wait >40 msec after power is applied 
-    P1 = 0x30;                    //put 0x30 on the output port 
-    Delay(30);                    //must wait 5ms, busy flag not available 
-    Nybble();                     //command 0x30 = Wake up  
-    Delay(10);                    //must wait 160us, busy flag not available 
-    Nybble();                     //command 0x30 = Wake up #2 
-    Delay(10);                    //must wait 160us, busy flag not available 
-    Nybble();                     //command 0x30 = Wake up #3 
-    Delay(10);                    //can check busy flag now instead of delay 
-    P1= 0x20;                     //put 0x20 on the output port 
-    Nybble();                     //Function set: 4-bit interface 
-    command(0x28);                //Function set: 4-bit/2-line 
-    command(0x10);                //Set cursor 
-    command(0x0F);                //Display ON; Blinking cursor 
-    command(0x06);                //Entry Mode set 
-} 
-// ********************************************************** 
- 
- */
-
