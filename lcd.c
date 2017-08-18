@@ -200,19 +200,20 @@ void processLCDQueue()
                 writeToLCDLAT(gLCDBuffer[gLCDIndex], false);
                 LATBbits.LATB15 = 1;    // D/I = high : send data
                 
+                // Record the new character
+                gLCDActual[gLCDIndex] = gLCDBuffer[gLCDIndex];
+
                 // Was this the last character?
                 if (gLCDIndex == 15)
                     // Send the command to move cursor back to 0x00 position
                     sendLCDCommand(0x80);
+
+                // Prepare for next cycle
+                gLCDIndex = (gLCDIndex + 1) % 16;               
             }
             
             LATBbits.LATB14 = 1;    // Enable -> high
             
-            // Record the new character
-            gLCDActual[gLCDIndex] = gLCDBuffer[gLCDIndex];
-
-            // Prepare for next cycle
-            gLCDIndex = (gLCDIndex + 1) % 16;
             gSecondNybble = false;
         }
         

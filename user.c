@@ -7,6 +7,7 @@
 
 // Environment includes
 #include "xc.h"
+#include "stdlib.h"
 
 // Project includes
 #include "user.h"
@@ -34,14 +35,14 @@ unsigned int gCircularBufferHead[8] = { };
 
 // The LTC1867 sequential commands
 LTC1867Config gLTC1867Commands[8] = {
-    { .BITS = { 1, 0, 0, 0, 0, 1, 0 }},    // CHO
-    { .BITS = { 1, 1, 0, 0, 0, 1, 0 }},    // CH1
-    { .BITS = { 1, 0, 0, 1, 0, 1, 0 }},    // CH2
-    { .BITS = { 1, 1, 0, 1, 0, 1, 0 }},    // CH3
-    { .BITS = { 1, 0, 1, 0, 0, 1, 0 }},    // CH4
-    { .BITS = { 1, 1, 1, 0, 0, 1, 0 }},    // CH5
-    { .BITS = { 1, 0, 1, 1, 0, 1, 0 }},    // CH6
-    { .BITS = { 1, 1, 1, 1, 0, 1, 0 }}     // CH7
+    { .BITS = { 0, 1, 0, 0, 0, 0, 1 }},    // CHO
+    { .BITS = { 0, 1, 0, 0, 0, 1, 1 }},    // CH1
+    { .BITS = { 0, 1, 0, 1, 0, 0, 1 }},    // CH2
+    { .BITS = { 0, 1, 0, 1, 0, 1, 1 }},    // CH3
+    { .BITS = { 0, 1, 0, 0, 1, 0, 1 }},    // CH4
+    { .BITS = { 0, 1, 0, 0, 1, 1, 1 }},    // CH5
+    { .BITS = { 0, 1, 0, 1, 1, 0, 1 }},    // CH6
+    { .BITS = { 0, 1, 0, 1, 1, 1, 1 }}     // CH7
 };
 
 // The last A/D channel requested
@@ -108,7 +109,13 @@ void processADCPolling()
         bool bChange = (prevValue != gOutgoingValues[gLastADChannel]);
         
         // Update the LCD indicator for that channel
-        writeLCDString(0, gLastADChannel, (bChange)? "*" : " ");
+        writeLCDString(0, gLastADChannel, (bChange)? "*" : "-");
+/*        if (gLastADChannel == 0)
+        {
+            char buffer[8] = { };
+            writeLCDString(0, 0, itoa(buffer, gOutgoingValues[gLastADChannel], 16));
+        }
+*/
         
         // Update the last requested channel indicator
         gLastADChannel = nextChannel;

@@ -44,14 +44,14 @@ extern RUN_STATE gCurrentState;
 // Configuration 16bit word for the LTC1867 ADC
 typedef union tagLTC1867Config {
     struct {
-        unsigned SD :1;
-        unsigned OS :1;
-        unsigned S1 :1;
-        unsigned S0 :1;
-        unsigned COM :1;
-        unsigned UNI :1;
-        unsigned SLP :1;    
         unsigned :9;
+        unsigned SLP :1;    
+        unsigned UNI :1;
+        unsigned COM :1;
+        unsigned S0 :1;
+        unsigned S1 :1;
+        unsigned OS :1;        
+        unsigned SD :1;
     } BITS;
     struct {
         uint16_t word;

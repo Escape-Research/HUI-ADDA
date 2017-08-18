@@ -1,12 +1,12 @@
 <config configVersion="1.1" device="dsPIC33EV256GM102" coreVersion="4.26">
    <usedClasses class="java.util.HashMap">
       <entry>
-         <string>SPI2</string>
-         <string>class com.microchip.mcc.mcu16.modules.spi.SPI</string>
-      </entry>
-      <entry>
          <string>System Module</string>
          <string>class com.microchip.mcc.mcu16.systemManager.DefaultSystemManagerMcu16</string>
+      </entry>
+      <entry>
+         <string>SPI2</string>
+         <string>class com.microchip.mcc.mcu16.modules.spi.SPI</string>
       </entry>
       <entry>
          <string>SPI1</string>
@@ -1338,12 +1338,12 @@
          <value>0</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR4" registerAlias="PR32"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR2" registerAlias="TCON" settingAlias="TCKPS" alias="1:256"/>
          <value>3</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR4" registerAlias="PR32"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="TMR2" registerAlias="TNI" settingAlias="context"/>
@@ -2730,12 +2730,12 @@
          <value>3</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR4" registerAlias="TCON" settingAlias="TSIDL" alias="disabled"/>
-         <value>0</value>
-      </entry>
-      <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="TMR2" registerAlias="PR"/>
          <value>19</value>
+      </entry>
+      <entry>
+         <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="TMR4" registerAlias="TCON" settingAlias="TSIDL" alias="disabled"/>
+         <value>0</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="System Module" registerAlias="FWDT" settingAlias="FWDTEN" alias="ON_SWDTEN"/>
@@ -3735,7 +3735,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="SPI2" registerAlias="SPICON2"/>
-         <value>32769</value>
+         <value>40961</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="INTERNAL OSCILLATOR" registerAlias="RCON" settingAlias="BOR" alias="enabled"/>
@@ -3743,7 +3743,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.RegisterKey" moduleName="SPI1" registerAlias="SPICON2"/>
-         <value>32769</value>
+         <value>40961</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="ODCB" settingAlias="ODCB7" alias="enabled"/>
@@ -4523,7 +4523,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI2" registerAlias="SPICON2" settingAlias="FRMPOL"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.OptionKey" moduleName="Pin Module" registerAlias="CNENB" settingAlias="CNIEB5" alias="disabled"/>
@@ -4535,7 +4535,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="SPI1" registerAlias="SPICON2" settingAlias="FRMPOL"/>
-         <value>disabled</value>
+         <value>enabled</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.SettingKey" moduleName="Pin Module" registerAlias="ANSELA" settingAlias="ANSA0"/>
@@ -5580,12 +5580,12 @@
    </tokenMap>
    <generatedFileHashHistoryMap class="java.util.HashMap">
       <entry>
-         <file>mcc_generated_files\interrupt_manager.h</file>
-         <hash>6bb99bb68d4dfa839e5f98030d710bd88b2156d0eb7dcd8b512aa5da5b988979</hash>
+         <file>mcc_generated_files\mcc.h</file>
+         <hash>758a34debce214145288452c03c99183f6c34372276f30bcd87e07545dd8e4ed</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.h</file>
-         <hash>dd60b6579777467feea2bd0a2548b36221667fdcb1bab839dc26b4e9d10a587a</hash>
+         <file>mcc_generated_files\interrupt_manager.h</file>
+         <hash>6bb99bb68d4dfa839e5f98030d710bd88b2156d0eb7dcd8b512aa5da5b988979</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\tmr4.h</file>
@@ -5617,11 +5617,11 @@
       </entry>
       <entry>
          <file>mcc_generated_files\spi2.c</file>
-         <hash>ace1e6afcdbd717443e05d95be8f08aad11257e0c6d408ec7615444627a74ebc</hash>
+         <hash>be7172dc9950e2acbbde3b3edf367151b1baf53e919d04a19a3e1be3d840eb61</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\spi1.c</file>
-         <hash>f8ef67808091770dcd71ba7366e0920917c12d83f6e6f7ff780e74601a42d8db</hash>
+         <hash>9f35c65aa12b9d748ebc54d094ad7f1fdb9dc079a622fdaff1aad5451192fa54</hash>
       </entry>
       <entry>
          <file>mcc_generated_files\pin_manager.c</file>
@@ -5636,12 +5636,12 @@
          <hash>52665136af1853cf669576319d2cf2286efcf0f6c017d6afe16c698ced02f0dc</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\interrupt_manager.c</file>
-         <hash>e1674e9a26b996b19cc7ea23c5c1dad18ad53c1e96ef8eb1f788060a781b1cf3</hash>
+         <file>mcc_generated_files\mcc.c</file>
+         <hash>69207d902acca6be09848966e4666e7c4300acc954a23604ecb280ec9ebb3c73</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files\mcc.c</file>
-         <hash>f2643840e2bbae1ac1c1ab12996a16ccfbb4864259e063786a97377c2a4abc4a</hash>
+         <file>mcc_generated_files\interrupt_manager.c</file>
+         <hash>e1674e9a26b996b19cc7ea23c5c1dad18ad53c1e96ef8eb1f788060a781b1cf3</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>
