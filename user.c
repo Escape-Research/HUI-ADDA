@@ -56,21 +56,44 @@ uint16_t gOutgoingValues[8] = { };
 
 // The 32bit configuration to turn on the internal reference for AD5668
 AD5668Config gAD5668EnableIntRef = {
-    { .command.COMMAND_BITS = { 1, 0, 0, 0 }, .DB0 = 1 }
+    { .command.COMMAND_BITS = { 0, 0, 0, 1 }, .DB0 = 1 }
 };
 
 // The last D/A channel send to the DAC
 unsigned int gLastDACChannel;
 
+uint16_t ADCXChange(uint16_t *dataTransmitted, uint16_t byteCount, uint16_t *dataReceived)
+{
+    uint16_t retval = 0;
+    
+    LATBbits.LATB0 = 0;
+    retval = SPI1_Exchange16bitBuffer(dataTransmitted, byteCount, dataReceived);
+    LATBbits.LATB0 = 1;
+    
+    return retval;
+}
+
+uint16_t DACXChange(AD5668Config adVariable, uint16_t *dataReceived)
+{
+    uint16_t retval = 0;
+    
+    LATBbits.LATB6 = 0;
+    uint16_t val[2];
+    val[0] = adVariable.wordHi;
+    val[1] = adVariable.wordLo;
+    retval = SPI2_Exchange16bitBuffer(val, 4, dataReceived);
+    __delay_us(10);
+    LATBbits.LATB6 = 1;
+    
+    return retval;
+}
 
 // Kick-start the A/D
 void initializeADC()
 {
     // Send command to LTC to begin sampling CH0
     uint16_t receiveBuffer; // the dummy receive buffer
-    //INTERRUPT_GlobalDisable();
-    SPI1_Exchange16bitBuffer(&gLTC1867Commands[0].word, 2, &receiveBuffer);
-    //INTERRUPT_GlobalEnable();
+    ADCXChange(&gLTC1867Commands[0].word, 2, &receiveBuffer);
 
     // Update the last requested channel indicator
     gLastADChannel = 0;
@@ -92,9 +115,7 @@ void processADCPolling()
         unsigned int nextChannel = (gLastADChannel + 1) % 8;
         
         // Send / Receive on the A/D SPI
-        //INTERRUPT_GlobalDisable();
-        SPI1_Exchange16bitBuffer(&gLTC1867Commands[nextChannel].word, 2, &gIncomingValues[gLastADChannel]);
-        //INTERRUPT_GlobalEnable();
+        ADCXChange(&gLTC1867Commands[nextChannel].word, 2, &gIncomingValues[gLastADChannel]);
 
         // Start timer 2 to indicate when the A/D will have finished the conversion
         TMR2_Start();
@@ -129,13 +150,12 @@ uint16_t readADCChannel(unsigned int channel)
     uint16_t buffer = 0;
     
     // Use this call to tell the ADC which channel we want to read
-    //INTERRUPT_GlobalDisable();
-    SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
+    ADCXChange(&gLTC1867Commands[channel].word, 2, &buffer);
+
     __delay_us(10);
     
     // And this call to actually read back the value!
-    SPI1_Exchange16bitBuffer(&gLTC1867Commands[channel].word, 2, &buffer);
-    //INTERRUPT_GlobalEnable();
+    ADCXChange(&gLTC1867Commands[channel].word, 2, &buffer);
 
     __delay_us(10);
     
@@ -263,10 +283,7 @@ void processChannel(int channel)
 // Setup the internal reference for the AD5668 DAC
 void initializeDAC()
 {
-    //uint16_t receiveBuffer[2]; // dummy receive buffer
-    //INTERRUPT_GlobalDisable();
-    SPI2_Exchange16bitBuffer(gAD5668EnableIntRef.words, 4, NULL);
-    //INTERRUPT_GlobalEnable();
+    DACXChange(gAD5668EnableIntRef, NULL);
     
     // Setup last channel indicator to the last channel (so it will roll to first)
     gLastDACChannel = 7;
@@ -289,10 +306,7 @@ void processDACUpdates()
     DACConfig.data = gOutgoingValues[channel];
     
     // Initiate the SPI communication to the DAC
-    //uint16_t receiveBuffer[2]; // dummy receive buffer
-    //INTERRUPT_GlobalDisable();
-    SPI2_Exchange16bitBuffer(DACConfig.words, 4, NULL);
-    //INTERRUPT_GlobalEnable();
+    DACXChange(DACConfig, NULL);
     
     // Update the last channel indicator
     gLastDACChannel = channel;

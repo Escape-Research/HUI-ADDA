@@ -62,24 +62,37 @@ extern LTC1867Config gLTC1867Commands[8];
 // Configuration 32bit sequence for the AD5668 DAC
 typedef union tagAD5668Config {
     struct {
-        unsigned :4;
+        unsigned DB0 :1;
+        unsigned :3;
         union {
             struct {
-                unsigned C3 :1;
-                unsigned C2 :1;
-                unsigned C1 :1;
-                unsigned C0 :1;
-            } COMMAND_BITS;
+                unsigned D0 :1;
+                unsigned D1 :1;
+                unsigned D2 :1;
+                unsigned D3 :1;
+                unsigned D4 :1;
+                unsigned D5 :1;
+                unsigned D6 :1;
+                unsigned D7 :1;
+                unsigned D8 :1;
+                unsigned D9 :1;
+                unsigned D10 :1;
+                unsigned D11 :1;
+                unsigned D12 :1;
+                unsigned D13 :1;
+                unsigned D14 :1;
+                unsigned D15 :1;
+            } DATA_BITS;
             struct {
-                unsigned command_value :4;
+                uint16_t data;
             };
-        } command;
+        };
         union ADDRESS {
             struct {
-                unsigned A3 :1;
-                unsigned A2 :1;
+                unsigned A0 :1;
                 unsigned A1 :1;
-                unsigned A0 :1;                
+                unsigned A2 :1;
+                unsigned A3 :1;                
             } ADDRESS_BITS;
             struct {
                 unsigned address_value :4;
@@ -87,37 +100,28 @@ typedef union tagAD5668Config {
         } address;
         union {
             struct {
-                unsigned D15 :1;
-                unsigned D14 :1;
-                unsigned D13 :1;
-                unsigned D12 :1;
-                unsigned D11 :1;
-                unsigned D10 :1;
-                unsigned D9 :1;
-                unsigned D8 :1;
-                unsigned D7 :1;
-                unsigned D6 :1;
-                unsigned D5 :1;
-                unsigned D4 :1;
-                unsigned D3 :1;
-                unsigned D2 :1;
-                unsigned D1 :1;
-                unsigned D0 :1;
-            } DATA_BITS;
+                unsigned C0 :1;
+                unsigned C1 :1;
+                unsigned C2 :1;
+                unsigned C3 :1;
+            } COMMAND_BITS;
             struct {
-                uint16_t data;
+                unsigned command_value :4;
             };
-        };
-        unsigned :3;
-        unsigned DB0 :1;
+        } command;
+        unsigned :4;
     };
     struct {
-        uint16_t words[2];
+        uint16_t wordLo;
+        uint16_t wordHi;
     };
 } AD5668Config;
 
 // Kick-start the A/D
 void initializeADC();
+
+// ADC communication routine
+uint16_t ADCXChange(uint16_t *dataTransmitted, uint16_t byteCount, uint16_t *dataReceived);
 
 // Process A/D jobs
 void processADCPolling();
@@ -130,6 +134,9 @@ void processChannel(int channel);
                
 // Initialize the DAC internal reference
 void initializeDAC();
+
+// DAC communication routine
+uint16_t DACXChange(AD5668Config adVariable, uint16_t *dataReceived);
 
 // Process D/A jobs
 void processDACUpdates();

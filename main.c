@@ -72,6 +72,11 @@ int main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    
+    // Reset the SS1 and SS2 for the SPI communications
+    LATBbits.LATB0 = 1;
+    LATBbits.LATB6 = 1;
+    
 
     // When using interrupts, you need to set the Global Interrupt Enable bits
     // Use the following macros to:
