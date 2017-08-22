@@ -68,8 +68,8 @@ uint16_t ADCXChange(uint16_t *dataTransmitted, uint16_t byteCount, uint16_t *dat
     
     LATBbits.LATB0 = 0;
     retval = SPI1_Exchange16bitBuffer(dataTransmitted, byteCount, dataReceived);
-    __delay_us(1);
-    LATBbits.LATB0 = 1;
+    //__delay_us(1);
+    //LATBbits.LATB0 = 1;
     
     return retval;
 }
@@ -78,14 +78,15 @@ uint16_t DACXChange(AD5668Config adVariable, uint16_t *dataReceived)
 {
     uint16_t retval = 0;
     
-    uint16_t wh = adVariable.words[1];
-    uint16_t wl = adVariable.words[0];
+    uint16_t w[2];
+    w[0] = adVariable.words[1];
+    w[1] = adVariable.words[0];
 
     LATBbits.LATB6 = 0;
-    retval = SPI2_Exchange16bitBuffer(&wh, 2, dataReceived);
-    retval = SPI2_Exchange16bitBuffer(&wl, 2, dataReceived);
-    __delay_us(8);
-    LATBbits.LATB6 = 1;
+    retval = SPI2_Exchange16bitBuffer(w, 4, dataReceived);
+    //retval = SPI2_Exchange16bitBuffer(&wl, 2, dataReceived);
+    //__delay_us(8);
+    //LATBbits.LATB6 = 1;
     
     return retval;
 }

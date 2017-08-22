@@ -52,6 +52,12 @@
 */
 void INTERRUPT_Initialize (void)
 {
+    //    SPII: SPI2 transfer done
+    //    Priority: 2
+        IPC8bits.SPI2IP = 2;
+    //    SPII: SPI1 transfer done
+    //    Priority: 2
+        IPC2bits.SPI1IP = 2;
     //    TI: Timer 4
     //    Priority: 1
         IPC6bits.T4IP = 1;

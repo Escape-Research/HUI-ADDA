@@ -108,7 +108,7 @@ int main(void)
                 
                 // Kick start the A/D
                 initializeADC();
-                
+
                 // Initialize the D/A internal reference
                 initializeDAC();
                 

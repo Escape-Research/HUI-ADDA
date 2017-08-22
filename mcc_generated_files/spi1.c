@@ -66,12 +66,16 @@ uint16_t SPI1_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
 
 void SPI1_Initialize (void)
 {
-    // MSTEN Master; DISSDO disabled; PPRE 64:1; SPRE 8:1; MODE16 enabled; SMP End; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
-    SPI1CON1 = 0x620;
+    // MSTEN Master; DISSDO disabled; PPRE 16:1; SPRE 4:1; MODE16 enabled; SMP End; DISSCK disabled; CKP Idle:Low, Active:High; CKE Idle to Active; SSEN disabled; 
+    SPI1CON1 = 0x631;
     // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN disabled; 
     SPI1CON2 = 0x1;
-    // SISEL SPI_INT_SPITBF; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
-    SPI1STAT = 0x801C;
+    // SISEL SPI_INT_TRMT_COMPLETE; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
+    SPI1STAT = 0x8014;
+
+    // Enable the SPI1 interrupt
+    IFS0bits.SPI1IF = false;
+    IEC0bits.SPI1IE = true;
 }
 
 void SPI1_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
@@ -248,6 +252,16 @@ SPI1_STATUS SPI1_StatusGet()
 {
     return(SPI1STAT);
 }
+
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _SPI1Interrupt (  )
+{
+    // Bring up the SS1
+    LATBbits.LATB0 = 1;
+    
+    // Reset the interrupt flag
+    IFS0bits.SPI1IF = 0;
+}
+
 /**
  End of File
 */
