@@ -138,11 +138,11 @@ void processLCDQueue()
             {
                 if (gLCDBuffer[gLCDIndex] == gLCDActual[gLCDIndex])
                 {
-                    // Move on to the next character
-                    gLCDIndex = (gLCDIndex + 1) % 16;
-
                     // Mark that we'll need to move the cursor!
                     gNeedToMove = true;
+
+                    // Move on to the next character
+                    gLCDIndex = (gLCDIndex + 1) % 16;
 
                     // Re-start the timer and exit
                     TMR4_Start();
@@ -204,9 +204,9 @@ void processLCDQueue()
                 gLCDActual[gLCDIndex] = gLCDBuffer[gLCDIndex];
 
                 // Was this the last character?
-                if (gLCDIndex == 15)
+                //if (gLCDIndex == 15)
                     // Send the command to move cursor back to 0x00 position
-                    sendLCDCommand(0x80);
+                //    sendLCDCommand(0x80);
 
                 // Prepare for next cycle
                 gLCDIndex = (gLCDIndex + 1) % 16;               
