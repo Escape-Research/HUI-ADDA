@@ -30,7 +30,7 @@ unsigned int gCoefficients[8][4] = {
 
 // Averaging Buffers (for noise suppression)
 bool gUseAveraging = true;
-uint16_t gCircularBuffers[8][16] = { };
+uint16_t gCircularBuffers[8][NUM_OF_AVERAGES] = { };
 unsigned int gCircularBufferHead[8] = { };
 
 // The LTC1867 sequential commands
@@ -56,7 +56,7 @@ uint16_t gOutgoingValues[8] = { };
 
 // The 32bit configuration to turn on the internal reference for AD5668
 AD5668Config gAD5668EnableIntRef = {
-    { .command.COMMAND_BITS = { 0, 0, 0, 1 }, .DB0 = 1 }
+    { .C0 = 0, .C1 = 0, .C2 = 0, .C3 = 1, .DB0 = 1 }
 };
 
 // The last D/A channel send to the DAC
@@ -68,6 +68,7 @@ uint16_t ADCXChange(uint16_t *dataTransmitted, uint16_t byteCount, uint16_t *dat
     
     LATBbits.LATB0 = 0;
     retval = SPI1_Exchange16bitBuffer(dataTransmitted, byteCount, dataReceived);
+    __delay_us(1);
     LATBbits.LATB0 = 1;
     
     return retval;
@@ -77,12 +78,13 @@ uint16_t DACXChange(AD5668Config adVariable, uint16_t *dataReceived)
 {
     uint16_t retval = 0;
     
+    uint16_t wh = adVariable.words[1];
+    uint16_t wl = adVariable.words[0];
+
     LATBbits.LATB6 = 0;
-    uint16_t val[2];
-    val[0] = adVariable.wordHi;
-    val[1] = adVariable.wordLo;
-    retval = SPI2_Exchange16bitBuffer(val, 4, dataReceived);
-    __delay_us(10);
+    retval = SPI2_Exchange16bitBuffer(&wh, 2, dataReceived);
+    retval = SPI2_Exchange16bitBuffer(&wl, 2, dataReceived);
+    __delay_us(8);
     LATBbits.LATB6 = 1;
     
     return retval;
@@ -299,11 +301,36 @@ void processDACUpdates()
     AD5668Config DACConfig = { };
     
     // Setup the command and DAC channel
-    DACConfig.command.command_value = 0x3;  // Write to and update DAC channel n
-    DACConfig.address.address_value = channel;
+    //DACConfig.command.command_value = 0x3;  // Write to and update DAC channel n
+    DACConfig.C1 = 1;
+    DACConfig.C0 = 1;
+    Address4Bit addr;
+    addr.address_value = channel;
+    DACConfig.A0 = addr.ADDRESS_BITS.A0;
+    DACConfig.A1 = addr.ADDRESS_BITS.A1;
+    DACConfig.A2 = addr.ADDRESS_BITS.A2;
+    DACConfig.A3 = addr.ADDRESS_BITS.A3;
     
     // Setup the output value
-    DACConfig.data = gOutgoingValues[channel];
+    //DACConfig.data.data_value = gOutgoingValues[channel];
+    Data16Bit data;
+    data.data_value = gOutgoingValues[channel];
+    DACConfig.D0 = data.DATA_BITS.D0;
+    DACConfig.D1 = data.DATA_BITS.D1;
+    DACConfig.D2 = data.DATA_BITS.D2;
+    DACConfig.D3 = data.DATA_BITS.D3;
+    DACConfig.D4 = data.DATA_BITS.D4;
+    DACConfig.D5 = data.DATA_BITS.D5;
+    DACConfig.D6 = data.DATA_BITS.D6;
+    DACConfig.D7 = data.DATA_BITS.D7;
+    DACConfig.D8 = data.DATA_BITS.D8;
+    DACConfig.D9 = data.DATA_BITS.D9;
+    DACConfig.D10 = data.DATA_BITS.D10;
+    DACConfig.D11 = data.DATA_BITS.D11;
+    DACConfig.D12 = data.DATA_BITS.D12;
+    DACConfig.D13 = data.DATA_BITS.D13;
+    DACConfig.D14 = data.DATA_BITS.D14;
+    DACConfig.D15 = data.DATA_BITS.D15;
     
     // Initiate the SPI communication to the DAC
     DACXChange(DACConfig, NULL);
