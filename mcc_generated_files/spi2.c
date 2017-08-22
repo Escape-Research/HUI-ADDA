@@ -70,12 +70,8 @@ void SPI2_Initialize (void)
     SPI2CON1 = 0x631;
     // SPIFSD disabled; SPIBEN enabled; FRMPOL disabled; FRMDLY disabled; FRMEN disabled; 
     SPI2CON2 = 0x1;
-    // SISEL SPI_INT_LAST_WORD_READ; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
-    SPI2STAT = 0x8000;
-    
-    // Enable the SPI2 interrupt
-    IFS2bits.SPI2IF = false;
-    IEC2bits.SPI2IE = true;
+    // SISEL SPI_INT_ENHBUF_EMPTY; SPIROV disabled; SPIEN enabled; SPISIDL disabled; 
+    SPI2STAT = 0x8018;
 }
 
 void SPI2_Exchange( uint8_t *pTransmitData, uint8_t *pReceiveData )
@@ -180,7 +176,7 @@ uint16_t SPI2_ExchangeBuffer(uint8_t *pTransmitData, uint16_t byteCount, uint8_t
         }
 
     }
-/*    while (count)
+    /*while (count)
     {
         if (SPI2STATbits.SRXMPT == false)
         {
@@ -252,17 +248,6 @@ SPI2_STATUS SPI2_StatusGet()
 {
     return(SPI2STAT);
 }
-
-void __attribute__ ( ( interrupt, no_auto_psv ) ) _SPI2Interrupt (  )
-{
-    // Bring up the SS2
-    LATBbits.LATB6 = 1;
-
-    // Reset the interrupt flag
-    IFS2bits.SPI2IF = 0;
-}
-
-
 /**
  End of File
 */

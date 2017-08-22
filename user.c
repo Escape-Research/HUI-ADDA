@@ -84,9 +84,6 @@ uint16_t DACXChange(AD5668Config adVariable, uint16_t *dataReceived)
 
     LATBbits.LATB6 = 0;
     retval = SPI2_Exchange16bitBuffer(w, 4, dataReceived);
-    //retval = SPI2_Exchange16bitBuffer(&wl, 2, dataReceived);
-    //__delay_us(8);
-    //LATBbits.LATB6 = 1;
     
     return retval;
 }
@@ -286,11 +283,25 @@ void processChannel(int channel)
 // Setup the internal reference for the AD5668 DAC
 void initializeDAC()
 {
+    // Enable the SPI2 interrupt
+    IFS2bits.SPI2IF = false;
+    IEC2bits.SPI2IE = true;
+
     DACXChange(gAD5668EnableIntRef, NULL);
     
     // Setup last channel indicator to the last channel (so it will roll to first)
     gLastDACChannel = 7;
 }
+
+void __attribute__ ( ( interrupt, no_auto_psv ) ) _SPI2Interrupt (  )
+{
+    // Setup the timer 3 (to bring up the SS2)
+    TMR3_Start();
+    
+    // Reset the interrupt flag
+    IFS2bits.SPI2IF = 0;
+}
+
 
 // Process D/A jobs
 void processDACUpdates()

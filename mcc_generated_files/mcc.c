@@ -125,10 +125,11 @@ void SYSTEM_ResetCauseClear(RESET_MASKS resetFlagMask);
 void SYSTEM_Initialize(void)
 {
     PIN_MANAGER_Initialize();
-    OSCILLATOR_Initialize();
     INTERRUPT_Initialize();
+    OSCILLATOR_Initialize();
     SPI1_Initialize();
     SPI2_Initialize();
+    TMR3_Initialize();
     TMR4_Initialize();
     TMR2_Initialize();
     INTERRUPT_GlobalEnable();
