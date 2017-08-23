@@ -77,7 +77,7 @@ void initializeLCD()
     writeLCDStringSync(0, 0, "HUI ADDAver. 1.0");
 
     // Wait for 1 sec (to read version on display)
-    __delay_ms(100);
+    __delay_ms(1000);
     
     // Kick start the timer
     TMR4_Start();

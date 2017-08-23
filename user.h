@@ -28,7 +28,7 @@
 extern unsigned int gCoefficients[8][4];
 
 // Averaging Buffers (for noise suppression)
-#define NUM_OF_AVERAGES 6
+#define NUM_OF_AVERAGES 4
 extern bool gUseAveraging;
 extern uint16_t gCircularBuffers[8][NUM_OF_AVERAGES];
 extern unsigned int gCircularBufferHead[8];

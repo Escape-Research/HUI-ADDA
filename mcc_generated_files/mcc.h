@@ -48,13 +48,13 @@
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "tmr3.h"
 #include "tmr4.h"
-#include "tmr2.h"
+#include "tmr3.h"
 #include "interrupt_manager.h"
 #include "traps.h"
 #include "spi1.h"
 #include "spi2.h"
+#include "tmr2.h"
 
 #define _XTAL_FREQ  60802500UL
 

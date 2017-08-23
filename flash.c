@@ -24,6 +24,9 @@ const unsigned int __attribute((space(prog),aligned(_FLASH_PAGE * 2))) gFlashSto
 
 void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {
+    // Disable the Global Interrupts
+    INTERRUPT_GlobalDisable();
+
     int offset, i;
     
     int bufHi, bufLo;
@@ -43,10 +46,16 @@ void readFromFlash(unsigned int *pRAMBuffer, int nBufferSize)
         
         offset += 2;
     }
+
+    // Enable the Global Interrupts
+    INTERRUPT_GlobalEnable();
 }
 
 void eraseFlashStorage()
 {
+    // Disable the Global Interrupts
+    INTERRUPT_GlobalDisable();
+
     int offset;
     
     NVMADRU = __builtin_tblpage(gFlashStorage);
@@ -62,10 +71,16 @@ void eraseFlashStorage()
     // wait until the operation is complete
     while (NVMCONbits.WR == 1)
         ;
+
+    // Enable the Global Interrupts
+    INTERRUPT_GlobalEnable();
 }
 
 void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
 {
+    // Disable the Global Interrupts
+    INTERRUPT_GlobalDisable();
+
     int offset, i;
     
     // Initialize and prepare the buffer
@@ -94,4 +109,7 @@ void writeToFlash(unsigned int *pRAMBuffer, int nBufferSize)
     // wait until the operation is complete
     while (NVMCONbits.WR == 1)
         ;
+
+    // Enable the Global Interrupts
+    INTERRUPT_GlobalEnable();
 }

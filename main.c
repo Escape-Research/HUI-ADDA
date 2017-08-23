@@ -147,6 +147,9 @@ int main(void)
 
                         // Update the LCD (we start from the 25% point)
                         writeLCDStringSync(0, 0, "--------Cal: 25%");
+                        
+                        // Turn on the cursor
+                        SetLCDCursor(true);
                     }
                 }
                 
@@ -277,8 +280,16 @@ int main(void)
                         eraseFlashStorage();
                         writeToFlash((unsigned int *)gCoefficients, 32);
 
+                        // Wait for 1 sec (as a notification that we are updating the flash)
+                        TMR4_Stop();
+                         __delay_ms(1000);
+                        TMR4_Start();
+                        
                         // Update the LCD
-                        writeLCDStringSync(0, 0, "        12345678");                
+                        writeLCDStringSync(0, 0, "        12345678");        
+                        
+                        // Turn off the cursor
+                        SetLCDCursor(false);
                     }
                     nBtn1Counter = 0;
                 }
