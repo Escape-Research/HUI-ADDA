@@ -87,8 +87,8 @@ void TMR4_Initialize (void)
 {
     //TMR4 0; 
     TMR4 = 0x0;
-    //Period = 0.0100037992 s; Frequency = 30401250 Hz; PR4 1188; 
-    PR4 = 0x4A4;
+    //Period = 0.0010778504 s; Frequency = 30401250 Hz; PR4 128; 
+    PR4 = 0x80;
     //TCKPS 1:256; T32 16 Bit; TON enabled; TSIDL disabled; TCS FOSC/2; TGATE disabled; 
     T4CON = 0x8030;
 
