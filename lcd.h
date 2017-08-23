@@ -43,6 +43,7 @@ void processLCDQueue();
 void writeLCDString(unsigned int row, unsigned int column, char *pString);
 void writeLCDStringSync(unsigned int row, unsigned int column, char *pString);
 void clearLCDScreen();
+void SetLCDCursor(bool isVisible);
 
 // private methods
 void writeToLCDLAT(uint8_t b, bool bHighNibble);

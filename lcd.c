@@ -17,11 +17,9 @@ bool gLCDon = true;
 
 // Declare the LCD buffer and round-robin index
 char gLCDBuffer[16] = { };
-char gLCDActual[16] = { 
-    255, 255, 255, 255, 255, 255, 255, 255,
-    255, 255, 255, 255, 255, 255, 255, 255 };
+char gLCDActual[16] = { };
     
-unsigned int gLCDIndex = 0;
+unsigned int gLCDIndex = 15;
 bool gNeedToMove = false;
 bool gIsCommand = false;
 uint8_t gCommand = 0x80;
@@ -147,6 +145,10 @@ void processLCDQueue()
                     // Re-start the timer and exit
                     TMR4_Start();
                     return;
+                }
+                else if (gLCDIndex == 8)
+                {
+                    gNeedToMove = true;
                 }
             }
             
@@ -359,12 +361,31 @@ void writeLCDStringSync(unsigned int row, unsigned int column, char *pString)
 
 void clearLCDScreen()
 {
-    // Fill the buffer with spaces
+    // Make sure that Timer 4 will not interrupt this call
+    TMR4_Stop();
     
+    // Fill the buffer with spaces    
     int i;
     for (i = 0; i < 16; i++)
         gLCDBuffer[i] = ' ';
     
     // Send the command to clear screen
     sendLCDCommand(0x01);
+
+    // Re-start the timer
+    TMR4_Start();
+}
+
+void SetLCDCursor(bool isVisible)
+{
+    // Make sure that Timer 4 will not interrupt this call
+    TMR4_Stop();
+
+    if (isVisible)
+        sendLCDCommand(0xF);
+    else
+        sendLCDCommand(0xC);
+
+    // Re-start the timer
+    TMR4_Start();
 }

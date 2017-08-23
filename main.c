@@ -118,6 +118,9 @@ int main(void)
                 // Update the LCD
                 writeLCDStringSync(0, 0, "        12345678");
                 
+                // Turn off the cursor
+                SetLCDCursor(false);
+                
                 // switch to normal mode
                 gCurrentState = normal;
                 
