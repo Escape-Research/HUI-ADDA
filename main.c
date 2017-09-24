@@ -295,18 +295,7 @@ int main(void)
 
                             // Save coefficients in flash
                             eraseFlashStorage();
-                            writeToFlash((unsigned int *)gCoefficients, 32);
-                            
-                            // Wait for 1 sec (as a notification that we are updating the flash)
-                            TMR4_Stop();
-                             __delay_ms(1000);
-                            TMR4_Start();
-
-                            // Update the LCD
-                            writeLCDStringSync(0, 0, "        12345678");        
-
-                            // Turn off the cursor
-                            SetLCDCursor(false);
+                            writeToFlash((unsigned int *)gCoefficients, 32);                            
                         }
                         else
                         {
@@ -317,18 +306,18 @@ int main(void)
                             nBtn2Counter = 0;
 
                             writeLCDStringSync(1, 0, "Aborting");
-
-                            // Wait for 1 sec (as a notification that we are updating the flash)
-                            TMR4_Stop();
-                             __delay_ms(1000);
-                            TMR4_Start();
-
-                            // Update the LCD
-                            writeLCDStringSync(0, 0, "        12345678");        
-
-                            // Turn off the cursor
-                            SetLCDCursor(false);
                         }
+
+                        // Wait for 1 sec (as a notification that we are updating the flash)
+                        TMR4_Stop();
+                         __delay_ms(1000);
+                        TMR4_Start();
+
+                        // Update the LCD
+                        writeLCDStringSync(0, 0, "        12345678");        
+
+                        // Turn off the cursor
+                        SetLCDCursor(false);
                     }
                     
                     nBtn1Counter = 0;
