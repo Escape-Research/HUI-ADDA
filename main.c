@@ -50,6 +50,8 @@
 #include "lcd.h"
 
 // Declaration of global variables
+unsigned int gTempCoefficients[8][4] = { };
+
 RUN_STATE gCurrentState = init; 
 uint8_t gCalState = 0;
 
@@ -94,7 +96,13 @@ int main(void)
     unsigned int currCalibrationChannel = 0;
     unsigned int currCalibrationCount = 0;
     
+    // Utility vars
+    int i, j;
+    
     uint16_t value = 0;
+    
+    bool bHasCircled = false;
+
     
     // Simple state machine
     while (1)
@@ -141,6 +149,7 @@ int main(void)
                         nBtn1Counter = 0;
                         currCalibrationChannel = 0;
                         currCalibrationCount = 0;
+                        bHasCircled = false;
                         
                         // Clear the avg. buffer
                         clearAvgBuffer();
@@ -211,8 +220,8 @@ int main(void)
                         avg += gAvgBuffer[currCalibrationChannel][i];
                     avg /= 16;
                     
-                    // Update the coefficient for this position and channel
-                    gCoefficients[currCalibrationChannel][gCalState] = avg;
+                    // Update the temp. coefficient for this position and channel
+                    gTempCoefficients[currCalibrationChannel][gCalState] = avg;
                     
                     // Update the display
                     writeLCDString(0, currCalibrationChannel, "+");
@@ -241,6 +250,7 @@ int main(void)
                         {
                             case 0:     // first quarter
                                 writeLCDStringSync(1, 0, "Cal: 25%");
+                                bHasCircled = true;
                                 break;
                             case 1:     // half
                                 writeLCDStringSync(1, 0, "Cal: 50%");
@@ -267,30 +277,60 @@ int main(void)
                     // Should we exit the calibration mode?
                     if (nBtn1Counter > 1000)
                     {
-                        // Reset transient state variables
-                        gCurrentState = normal;
-                        gCalState = 0;
-                        nBtn1Counter = 0;
-                        nBtn2Counter = 0;
+                        if (bHasCircled)
+                        {
+                            // Reset transient state variables
+                            gCurrentState = normal;
+                            gCalState = 0;
+                            nBtn1Counter = 0;
+                            nBtn2Counter = 0;
 
-                        // Update the LCD
-                        writeLCDStringSync(1, 0, "Saving..");
+                            // Update the LCD
+                            writeLCDStringSync(1, 0, "Saving..");
 
-                        // Save coefficients in flash
-                        eraseFlashStorage();
-                        writeToFlash((unsigned int *)gCoefficients, 32);
+                            // Update the running coefficients!
+                            for (i = 0; i < 8; i++)
+                                for (j = 0; j < 4; j++)
+                                    gCoefficients[i][j] = gTempCoefficients[i][j];
 
-                        // Wait for 1 sec (as a notification that we are updating the flash)
-                        TMR4_Stop();
-                         __delay_ms(1000);
-                        TMR4_Start();
-                        
-                        // Update the LCD
-                        writeLCDStringSync(0, 0, "        12345678");        
-                        
-                        // Turn off the cursor
-                        SetLCDCursor(false);
+                            // Save coefficients in flash
+                            eraseFlashStorage();
+                            writeToFlash((unsigned int *)gCoefficients, 32);
+                            
+                            // Wait for 1 sec (as a notification that we are updating the flash)
+                            TMR4_Stop();
+                             __delay_ms(1000);
+                            TMR4_Start();
+
+                            // Update the LCD
+                            writeLCDStringSync(0, 0, "        12345678");        
+
+                            // Turn off the cursor
+                            SetLCDCursor(false);
+                        }
+                        else
+                        {
+                            // Reset transient state variables
+                            gCurrentState = normal;
+                            gCalState = 0;
+                            nBtn1Counter = 0;
+                            nBtn2Counter = 0;
+
+                            writeLCDStringSync(1, 0, "Aborting");
+
+                            // Wait for 1 sec (as a notification that we are updating the flash)
+                            TMR4_Stop();
+                             __delay_ms(1000);
+                            TMR4_Start();
+
+                            // Update the LCD
+                            writeLCDStringSync(0, 0, "        12345678");        
+
+                            // Turn off the cursor
+                            SetLCDCursor(false);
+                        }
                     }
+                    
                     nBtn1Counter = 0;
                 }
                 
